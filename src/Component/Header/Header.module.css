@@ -1,0 +1,23 @@
+.header{
+
+}
+.rowForMenu {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+    padding-top: 15px;
+    border-top: 1px solid #d5d0d0;
+}
+.rowForMenu > a {
+    text-decoration: none;
+    margin-right: 35px;
+    font-size: 20px;
+    font-weight: bolder;
+    color: black;
+    border-bottom: 3px solid white;
+}
+.rowForMenu > a:hover {
+    color: gold;
+    border-bottom: 3px solid gold;
+    transition: 1s ;
+}

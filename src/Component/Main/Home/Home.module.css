@@ -1,0 +1,74 @@
+.homePage {
+    margin-top: 50px;
+    margin-right: 60px;
+    margin-left: 60px;
+}
+#nameOfTrend {
+
+}
+.colXs12 {
+    display: flex;
+    flex: 0 0 100%;
+    min-width: 100%;
+}
+.colXs8 {
+    display: flex;
+    flex: 0 0 66.666667%;
+    min-width: 66.666667%;
+}
+.colXs8 > img {
+    max-width: 100%;
+}
+.colXs6{
+    display: flex;
+    flex: 0 0 50%;
+    min-width: 50%;
+}
+.colXs4{
+    display: flex;
+    flex-direction: column;
+    flex: 0 0 33.333333%;
+    min-width: 33.333333%;
+}
+.box {
+    position: relative;
+}
+.text {
+    position: absolute;
+    bottom: 40%;
+    right: 40%;
+}
+.season {
+    font-weight: bolder;
+    font-size: 35px;
+}
+.year {
+    font-weight: bolder;
+    font-size: 40px;
+    color: gold;
+}
+.selectAge {
+    background-color: #c8d9c8;
+    justify-content: center;
+    align-items: center;
+}
+.item {
+text-align: center;
+    font-size: 25px;
+}
+.saleImg{
+    max-width: 200px;
+}
+.item > span {
+    font-size: 25px;
+    font-weight: bolder;
+}
+.collection {
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-image: url('https://themes.muffingroup.com/be/babyshop/wp-content/uploads/2021/10/babyshop-promo-bg1.webp');
+}
+.viewCollection {
+    margin-top: 15px;
+}
