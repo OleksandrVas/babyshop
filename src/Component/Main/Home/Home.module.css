@@ -72,3 +72,16 @@ text-align: center;
 .viewCollection {
     margin-top: 15px;
 }
+.containerForLikeCount {
+    position: absolute;
+    right: -40px;
+}
+.likeCount{
+    text-align: right;
+    position: sticky;
+    top: 50px;
+}
+.likeCount > span {
+    top: 2px;
+    margin-left: 5px;
+}

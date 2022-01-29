@@ -2,8 +2,10 @@ import React from "react";
 import classes from "./Header.module.css"
 import '../../App.css'
 import NavLinkCreator from "../NavLinkCreator/NavLinkCreator";
+import {pink} from "@mui/material/colors";
+import FavoriteIcon from "@mui/icons-material/Favorite";
 
-const HeaderMenu = () => {
+const HeaderMenu = ({likeCount}) => {
     return (
         <div className='container'>
             <div className={classes.rowForMenu}>
@@ -13,6 +15,7 @@ const HeaderMenu = () => {
                 <NavLinkCreator to="/blog" text='BLOG'/>
                 <NavLinkCreator to="/client" text='CLIENT CENTER '/>
                 <NavLinkCreator to="/faq" text='FAQ '/>
+
             </div>
         </div>
     )

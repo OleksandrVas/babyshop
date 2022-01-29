@@ -1,0 +1,9 @@
+.buttonHome {
+    margin-top: 50px;
+    text-align: center;
+}
+.buttonHome a {
+    text-decoration: none;
+    font-size: 20px;
+    color: #968a8a;
+}

@@ -1,0 +1,33 @@
+.productImage {
+    text-align: center;
+
+}
+.productImage img {
+    height: 300px;
+    width: auto;
+}
+.nameOfProduct {
+    text-align: center;
+}
+.liked {
+    color: pink;
+}
+.nameOfProduct h3 {
+    font-size: 20px;
+    font-weight: bolder;
+}
+.addToCart{
+    margin-top: 15px;
+    text-align: center;
+}
+.priceOfProduct {
+    text-align: center;
+
+    font-size: 20px;
+}
+.priceOfProduct span {
+    color: gold;
+}
+.positionOfLike {
+    text-align: right;
+}

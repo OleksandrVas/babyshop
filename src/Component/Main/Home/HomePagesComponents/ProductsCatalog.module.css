@@ -1,0 +1,8 @@
+.headLineContainer {
+    text-align: center;
+}
+.headLine {
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+}

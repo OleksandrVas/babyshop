@@ -1,0 +1,47 @@
+.boxContainerForSale {
+    background-size: 100%;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 592px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-image: url("https://themes.muffingroup.com/be/babyshop/wp-content/uploads/2021/10/babyshop-home-pic1.webp  ");
+}
+.box {
+    margin-top: 80px ;
+}
+.container{
+    text-align: center;
+}
+.container h1 {
+    font-size: 50px;
+    font-weight: 600;
+}
+.colXs12 {
+    display: flex;
+    flex: 0 0 100%;
+    min-width: 100%;
+}
+.colXs6 {
+    flex: 0 0 50%;
+    min-width: 50%;
+}
+.containerFoSpecialOffers{
+    background-size: 100%;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 592px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(234, 240, 247);
+}
+.imagesSpecialOffers {
+    width: 300px;
+}
+.container > span {
+    color:#94afc1
+}
