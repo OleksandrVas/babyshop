@@ -36,8 +36,8 @@ const ProductsListItem = ({nameOfProduct, src, price  , setLikeCount , likeCount
                             <Button variant="outlined" >Add to cart</Button>
                         </div>
                         <div className={classes.positionOfLike}>
-                            <IconButton aria-label="add to favorites">
-                                <FavoriteIcon onDoubleClick={onLiked} sx={liked ? {color: pink[500]} : {color : grey[600] } }/>
+                            <IconButton aria-label="add to favorites" onClick={onLiked}>
+                                <FavoriteIcon  sx={liked ? {color: pink[500]} : {color : grey[600] } }/>
                             </IconButton>
                             <IconButton aria-label="share">
                                 <ShareIcon />
