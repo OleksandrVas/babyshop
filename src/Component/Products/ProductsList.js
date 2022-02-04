@@ -8,7 +8,7 @@ import HeadLine from "../HeadLine/HeadLine";
 import GridComponent from "../Grid/GridComponent";
 
 
-const ProductsList = ({likeCount,setLikeCount}) => {
+const ProductsList = ({addLikeCount ,onAddToCart }) => {
 
     return (
         <>
@@ -16,7 +16,7 @@ const ProductsList = ({likeCount,setLikeCount}) => {
             <GridComponent>
                 {productsArray.map(({nameOfProduct, src, price, id}) =>
                     <Grid item xs={4} key={id}>
-                        <ProductsListItem likeCount={likeCount} setLikeCount={setLikeCount} src={src} price={price} nameOfProduct={nameOfProduct} />
+                        <ProductsListItem  id={id} onAddToCart={onAddToCart}  src={src} price={price} nameOfProduct={nameOfProduct} addLikeCount={addLikeCount} />
                     </Grid>)}
             </GridComponent>
             <div className={classes.buttonHome}>

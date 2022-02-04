@@ -19,3 +19,16 @@
     border-bottom: 3px solid gold;
     transition: 1s ;
 }
+.containerForLikeCount {
+    position: absolute;
+    right: -40px;
+}
+.likeCount{
+    text-align: right;
+    position: sticky;
+    top: 50px;
+}
+.likeCount > span {
+    top: 2px;
+    margin-left: 5px;
+}

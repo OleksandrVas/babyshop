@@ -5,19 +5,11 @@ import ShareIcon from '@mui/icons-material/Share';
 import classes from './ProductsListItem.module.css'
 import {pink ,grey } from "@mui/material/colors";
 
-
-const ProductsListItem = ({nameOfProduct, src, price  , setLikeCount , likeCount}) => {
+const ProductsListItem = ({nameOfProduct, addLikeCount ,src, price ,onAddToCart , id  }) => {
     const [liked, setLiked] = useState(false)
 
-    const setLikeCountToState = () => {
-        const currentLike = likeCount.totalLiked + (liked ? -1 : +1 )
-        return setLikeCount({
-            totalLiked : currentLike
-        })
-    }
-
     const onLiked = () => {
-        return setLiked(!liked) , setLikeCountToState()
+        return setLiked(!liked) , addLikeCount(liked)
     }
 
     return (
@@ -33,7 +25,7 @@ const ProductsListItem = ({nameOfProduct, src, price  , setLikeCount , likeCount
                         </div>
                         <div className={classes.priceOfProduct}> price : <span>{price} $ </span> </div>
                         <div className={classes.addToCart}  >
-                            <Button variant="outlined" >Add to cart</Button>
+                            <Button variant="outlined" onClick={() => onAddToCart(id, 1 )}  >Add to cart</Button>
                         </div>
                         <div className={classes.positionOfLike}>
                             <IconButton aria-label="add to favorites" onClick={onLiked}>

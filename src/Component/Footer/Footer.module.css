@@ -1,0 +1,29 @@
+.footer {
+    margin-top: 70px;
+    margin-right: 60px;
+    margin-left: 60px;
+}
+.footer a {
+    text-decoration: none;
+    color: black;
+    font-size: 17px;
+    color: #987d82;
+}
+.footer a:hover {
+    color: gold;
+}
+.btnToCenter{
+    margin-top: 20px;
+    margin-bottom: 30px;
+    text-align: center;
+}
+.toRight{
+    text-align: right;
+}
+.textfooter{
+    font-size: 20px;
+}
+.headLine {
+    margin-top: 50px;
+    margin-bottom: 20px;
+}

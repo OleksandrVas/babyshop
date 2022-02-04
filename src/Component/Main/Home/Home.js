@@ -6,20 +6,24 @@ import CategoryOfClothes from "./HomePagesComponents/CategoryOfClothes";
 import ProductsCatalog from "./HomePagesComponents/ProductsCatalog";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import {pink} from "@mui/material/colors";
+import {NavLink} from "react-router-dom";
 
-const Home = ({likeCount,setLikeCount}) => {
+const Home = ({likeCount , addLikeCount  , onAddToCart}) => {
 
     return (
         <>
             <div className={classes.homePage}>
                 <div className={classes.likeCount}>
                     <div className={classes.containerForLikeCount}>
-                        <FavoriteIcon  sx={{color: pink[500]} }/> <span>{likeCount.totalLiked}</span>
+                        <NavLink to="/liked" >
+                            <FavoriteIcon  sx={{color: pink[500]} }/>
+                        </NavLink>
+                        <span>{likeCount.totalLiked ===0 ? "" : likeCount.totalLiked}</span>
                     </div>
                 </div>
                 <NameOfTrend/>
                 <CategoryOfClothes />
-                <ProductsCatalog likeCount={likeCount} setLikeCount={setLikeCount} />
+                <ProductsCatalog likeCount={likeCount} addLikeCount={addLikeCount}  onAddToCart={onAddToCart} />
             </div>
 
         </>

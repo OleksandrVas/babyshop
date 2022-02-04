@@ -1,7 +1,7 @@
 const productsArray = [
     {
         id:1,
-        nameOfProduct: "Duvet Cover Set Pumpkin Bear",
+        nameOfProduct: "Duvet Cover Set Pumpkin ",
         price : 10 ,
         type:"bestSeller",
         src : "https://themes.muffingroup.com/be/babyshop/wp-content/uploads/2021/10/babyshop-product1a-500x625.webp"
@@ -22,7 +22,7 @@ const productsArray = [
     },
     {
         id:4,
-        nameOfProduct: "Duvet Cover Set Cute Mummy",
+        nameOfProduct: "Duvet Cover Set Cute ",
         price : 20 ,
         type:"NonBestSeller",
         src : "https://themes.muffingroup.com/be/babyshop/wp-content/uploads/2021/10/babyshop-product2a-500x625.webp"
@@ -54,6 +54,20 @@ const productsArray = [
         price : 29.99 ,
         type:"NonBestSeller",
         src : "https://themes.muffingroup.com/be/babyshop/wp-content/uploads/2021/10/babyshop-product6a-500x625.webp"
-    }
+    },
+    // {
+    //     id:9,
+    //     nameOfProduct: "Baby Robe Panda Space",
+    //     price : 9.99 ,
+    //     type:"NonBestSeller",
+    //     src : "https://themes.muffingroup.com/be/babyshop/wp-content/uploads/2021/10/babyshop-product6a-500x625.webp"
+    // },
+    // {
+    //     id:10,
+    //     nameOfProduct: "Baby Set Hello Cutie" ,
+    //     price : 19.99 ,
+    //     type:"NonBestSeller",
+    //     src : "https://themes.muffingroup.com/be/babyshop/wp-content/uploads/2021/10/babyshop-product8a.webp"
+    // }
 ]
 export default productsArray
