@@ -10,7 +10,6 @@ const Paginator = () =>  {
     const handleChange = (event, value) => {
         setPage(value);
     };
-
     return (
         <Stack spacing={2}>
             <Typography>Page: {page}</Typography>

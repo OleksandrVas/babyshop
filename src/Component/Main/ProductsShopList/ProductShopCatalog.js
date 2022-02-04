@@ -9,12 +9,25 @@ import Paginator from "../../Pagination/Pagination";
 
 const ProductShopCatalog = ({onAddToCart, addLikeCount}) => {
 
-    const [filterCount, setFilterCount] = useState(5)
+    const [filterCountInRow, setFilterCountInRow] = useState(5)
 
+    const [filterCountInPage, setFilterCountInPage] = useState(8)
+    const [a, b] = useState(false)
 
-    const onSetFilterCountBy = (count) => {
-        return setFilterCount(count)
+    const addMore = () => {
+        return b(true)
     }
+
+    const onSetFilterCountInRow = (count) => {
+        return setFilterCountInRow(count)
+    }
+
+    const onSetFilterCountInPage = (count) => {
+        return setFilterCountInPage(count)
+    }
+
+console.log(productsArray.slice(0, filterCountInPage))
+    console.log(productsArray.slice(filterCountInPage, (filterCountInPage+filterCountInPage)))
 
     return (
         <>
@@ -25,31 +38,48 @@ const ProductShopCatalog = ({onAddToCart, addLikeCount}) => {
                     </div>
                     <div className={classes.colXs6}>
                         <div className={classes.filterByCount}>
-                            <div>Show : </div>
-                            <div>4</div>
-                            <div>8</div>
-                            <div>12</div>
-                            <div>Row : </div>
-                            <div onClick={ () =>  onSetFilterCountBy(6)}>2</div>
-                            <div onClick={ () =>  onSetFilterCountBy(5)}>3</div>
-                            <div onClick={ () =>  onSetFilterCountBy(4)}>4</div>
+                            <div>Show :</div>
+                            <div onClick={() => onSetFilterCountInPage(3)}>3</div>
+                            <div onClick={() => onSetFilterCountInPage(6)}>6</div>
+                            <div onClick={() => onSetFilterCountInPage(8)}>8</div>
+                            <div>Row :</div>
+                            <div onClick={() => onSetFilterCountInRow(6)}>2</div>
+                            <div onClick={() => onSetFilterCountInRow(5)}>3</div>
+                            <div onClick={() => onSetFilterCountInRow(4)}>4</div>
                         </div>
                     </div>
                 </div>
                 <div>
                     <GridComponent>
-                        {productsArray.map(({nameOfProduct, src, price, id}) =>
-                            <Grid item xs={filterCount} key={id}>
+                        {productsArray.slice(0, filterCountInPage).map(({nameOfProduct, src, price, id}) =>
+                            <Grid item xs={filterCountInRow} key={id}>
+                                <ProductsListItem id={id} onAddToCart={onAddToCart}
+                                                  src={src} price={price}
+                                                  nameOfProduct={nameOfProduct}
+                                                  addLikeCount={addLikeCount}/>
+                            </Grid>)}
+                        {a && productsArray.slice(filterCountInPage, (filterCountInPage+filterCountInPage) ).map(({
+                                                                                                    nameOfProduct,
+                                                                                                    src,
+                                                                                                    price,
+                                                                                                    id
+                                                                                                }) =>
+                            <Grid item xs={filterCountInRow} key={id}>
                                 <ProductsListItem id={id} onAddToCart={onAddToCart}
                                                   src={src} price={price}
                                                   nameOfProduct={nameOfProduct}
                                                   addLikeCount={addLikeCount}/>
                             </Grid>)}
                     </GridComponent>
+                    <button onClick={addMore}>more</button>
+
+
                 </div>
+                {productsArray.length > filterCountInPage &&
                 <div className={classes.paginator}>
                     <Paginator/>
                 </div>
+                }
             </div>
         </>
     )
