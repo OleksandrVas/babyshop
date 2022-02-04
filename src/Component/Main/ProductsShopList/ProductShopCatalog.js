@@ -11,13 +11,10 @@ const ProductShopCatalog = ({onAddToCart, addLikeCount}) => {
 
     const [filterCount, setFilterCount] = useState(5)
 
-    const inRow2 = 6
-    const inRow3 = 5
-    const inRow4 = 4
 
-    const onSetFilterCountBy2 = () => {return setFilterCount(inRow2)}
-    const onSetFilterCountBy3 = () => {return setFilterCount(inRow3)}
-    const onSetFilterCountBy4 = () => {return setFilterCount(inRow4)}
+    const onSetFilterCountBy = (count) => {
+        return setFilterCount(count)
+    }
 
     return (
         <>
@@ -33,9 +30,9 @@ const ProductShopCatalog = ({onAddToCart, addLikeCount}) => {
                             <div>8</div>
                             <div>12</div>
                             <div>Row : </div>
-                            <div onClick={onSetFilterCountBy2}>2</div>
-                            <div onClick={onSetFilterCountBy3}>3</div>
-                            <div onClick={onSetFilterCountBy4}>4</div>
+                            <div onClick={ () =>  onSetFilterCountBy(6)}>2</div>
+                            <div onClick={ () =>  onSetFilterCountBy(5)}>3</div>
+                            <div onClick={ () =>  onSetFilterCountBy(4)}>4</div>
                         </div>
                     </div>
                 </div>
