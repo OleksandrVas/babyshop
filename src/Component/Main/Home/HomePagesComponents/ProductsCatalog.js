@@ -3,11 +3,11 @@ import ProductsList from "../../../Products/ProductsList";
 import ProductSaleOfProducts from "../../../Products/ProductSaleOfProducts";
 import ProductsBestsellers from "../../../Products/ProductsBestsellers";
 
-const ProductsCatalog = ({likeCount,addLikeCount, onAddToCart }) => {
+const ProductsCatalog = ({addToLiked, onAddToLiked, likeCount,addLikeCount, onAddToCart }) => {
 
     return (
         <>
-            <ProductsList onAddToCart={onAddToCart} likeCount={likeCount} addLikeCount={addLikeCount}/>
+            <ProductsList addToLiked={addToLiked} onAddToLiked={onAddToLiked} onAddToCart={onAddToCart} likeCount={likeCount} addLikeCount={addLikeCount}/>
             <ProductSaleOfProducts price={"30"}/>
             <ProductsBestsellers />
         </>

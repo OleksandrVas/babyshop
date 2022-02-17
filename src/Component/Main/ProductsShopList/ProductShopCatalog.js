@@ -7,7 +7,7 @@ import Paginator from "../../Pagination/Pagination";
 import FilterByCount from "./FilterByCount";
 
 
-const ProductShopCatalog = ({onAddToCart, addLikeCount , menuItems }) => {
+const ProductShopCatalog = ({onRemoveFromFavourite,onAddToLiked, onAddToCart, addLikeCount ,addToLiked, menuItems }) => {
 
     const [filterCountInRow, setFilterCountInRow] = useState(5)
 
@@ -40,8 +40,8 @@ const ProductShopCatalog = ({onAddToCart, addLikeCount , menuItems }) => {
                     <GridComponent>
                         {currentPage.map(({nameOfProduct, src, price, id , categories}) =>
                             <Grid item xs={filterCountInRow} key={id}>
-                                <ProductsListItem id={id} onAddToCart={onAddToCart}
-                                                  src={src} price={price}
+                                <ProductsListItem id={id} onRemoveFromFavourite={onRemoveFromFavourite} onAddToLiked={onAddToLiked} onAddToCart={onAddToCart}
+                                                  src={src} price={price} addToLiked={addToLiked}
                                                   nameOfProduct={nameOfProduct}
                                                   addLikeCount={addLikeCount}
                                                   categories={categories}/>

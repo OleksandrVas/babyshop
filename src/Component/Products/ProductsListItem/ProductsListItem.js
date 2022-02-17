@@ -3,20 +3,26 @@ import {Button, Card, CardContent, IconButton} from "@mui/material";
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import ShareIcon from '@mui/icons-material/Share';
 import classes from './ProductsListItem.module.css'
-import {pink ,grey } from "@mui/material/colors";
+import {pink, grey} from "@mui/material/colors";
 
-const ProductsListItem = ({nameOfProduct, addLikeCount ,src, price ,onAddToCart , id   , categories}) => {
+const ProductsListItem = ({nameOfProduct,onRemoveFromFavourite, onAddToLiked, src, price, onAddToCart, id, addToLiked, categories}) => {
+
     const [liked, setLiked] = useState(false)
 
-    const onLiked = () => {
-        return setLiked(!liked) , addLikeCount(liked) , onAddToCart(id, 1 )
+    const setLike = () => {
+        setLiked(!liked)
+        return liked
     }
+    const onLiked = () => {
+        return onAddToLiked(id, setLike())
+    }
+
 
     return (
         <>
             <Card>
                 <CardContent>
-                    <div >
+                    <div>
                         <div className={classes.productImage}>
                             <img src={src}/>
                         </div>
@@ -24,16 +30,16 @@ const ProductsListItem = ({nameOfProduct, addLikeCount ,src, price ,onAddToCart 
                             <h3>{nameOfProduct}</h3>
                             <h3>{categories}</h3>  {/*to link*/}
                         </div>
-                        <div className={classes.priceOfProduct}> price : <span>{price} $ </span> </div>
-                        <div className={classes.addToCart}  >
-                            <Button variant="outlined" onClick={() => onAddToCart(id, 1 )}  >Add to cart</Button>
+                        <div className={classes.priceOfProduct}> price : <span>{price} $ </span></div>
+                        <div className={classes.addToCart}>
+                            <Button variant="outlined" onClick={() => onAddToCart(id, 1)}>Add to cart</Button>
                         </div>
                         <div className={classes.positionOfLike}>
                             <IconButton aria-label="add to favorites" onClick={onLiked}>
-                                <FavoriteIcon  sx={liked ? {color: pink[500]} : {color : grey[600] } }/>
+                                <FavoriteIcon sx={liked ?  {color: pink[500]} : {color: grey[600]}  }/>
                             </IconButton>
                             <IconButton aria-label="share">
-                                <ShareIcon />
+                                <ShareIcon/>
                             </IconButton>
                         </div>
                     </div>

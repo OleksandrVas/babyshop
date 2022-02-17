@@ -19,7 +19,7 @@ const HeaderMenu = ({likeCount, addToCart}) => {
                 <NavLinkCreator to="/client" text='CLIENT CENTER '/>
                 <NavLinkCreator to="/faq" text='FAQ '/>
                 <NavLinkCreator to="/cart" text={"CART"} />
-                <NavLink to="/liked">
+                <NavLink to="/likedProduct">
                     <FavoriteIcon sx={{color: pink[500]}}/>
                 </NavLink>
                 <span>{likeCount.totalLiked === 0 ? "" : likeCount.totalLiked}</span>

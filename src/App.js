@@ -10,6 +10,20 @@ const App = () => {
         totalLiked: 0
     })
 
+    const [addToFavourite , setAddToFavourite] = useState({})
+
+    const onAddToLiked = (id , isLiked  ) => {
+        setAddToFavourite((prevState) => ({
+            ...prevState,
+            [id] : isLiked
+        }))
+    }
+    const onRemoveFromFavourite = (id) => {
+        const removeFromFavourite = {...addToFavourite}
+        delete(removeFromFavourite[id])
+        setAddToFavourite(removeFromFavourite)
+    }
+
     const addLikeCount = (isLiked) => {
         return setLikeCount((prevState) => ({
             totalLiked: prevState.totalLiked + (isLiked ? -1 : +1)
@@ -42,13 +56,12 @@ const App = () => {
     }
 
 
-
     return (
         <BrowserRouter>
             <div>
                 <Header likeCount={likeCount} addToCart={addToCart}/>
-                <Main addToCart={addToCart} likeCount={likeCount} onRemoveFromCart={onRemoveFromCart} addLikeCount={addLikeCount}
-                      onAddToCart={onAddToCart} quantity={quantity}/>
+                <Main addToCart={addToCart} addToLiked={addToFavourite} likeCount={likeCount} onRemoveFromCart={onRemoveFromCart} addLikeCount={addLikeCount}
+                      onRemoveFromFavourite={onRemoveFromFavourite} onAddToCart={onAddToCart} quantity={quantity} onAddToLiked={onAddToLiked}/>
                 <Footer/>
             </div>
         </BrowserRouter>

@@ -8,7 +8,7 @@ import FavoriteIcon from "@mui/icons-material/Favorite";
 import {pink} from "@mui/material/colors";
 import {NavLink} from "react-router-dom";
 
-const Home = ({likeCount , addLikeCount  , onAddToCart}) => {
+const Home = ({likeCount ,addToLiked, onAddToLiked, addLikeCount  , onAddToCart}) => {
 
     return (
         <>
@@ -23,7 +23,7 @@ const Home = ({likeCount , addLikeCount  , onAddToCart}) => {
                 </div>
                 <NameOfTrend/>
                 <CategoryOfClothes />
-                <ProductsCatalog likeCount={likeCount} addLikeCount={addLikeCount}  onAddToCart={onAddToCart} />
+                <ProductsCatalog  addToLiked={addToLiked} onAddToLiked={onAddToLiked} likeCount={likeCount} addLikeCount={addLikeCount}  onAddToCart={onAddToCart} />
             </div>
 
         </>

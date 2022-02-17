@@ -12,7 +12,7 @@ const allAge = [...new Set(productsArray.map(item => item.age))]
 
 
 
-const ProductsShopList = ({addLikeCount, onAddToCart}) => {
+const ProductsShopList = ({ onRemoveFromFavourite,addToLiked , addLikeCount, onAddToLiked, onAddToCart}) => {
 
     const [menuItems, setMenuItems] = useState(productsArray)
     const [buttons] = useState(allCategories);
@@ -40,7 +40,7 @@ const ProductsShopList = ({addLikeCount, onAddToCart}) => {
             <BreadCrumbs/>
             <div className={"colXs12"}>
                 <NavBarShop buttonsOfAge={buttonsOfAge} filter={filter} button={buttons} filteredByAge={filteredByAge}/>
-                <ProductShopCatalog addLikeCount={addLikeCount} menuItems={menuItems} onAddToCart={onAddToCart}/>
+                <ProductShopCatalog onRemoveFromFavourite={onRemoveFromFavourite} addToLiked={addToLiked} onAddToLiked={onAddToLiked} addLikeCount={addLikeCount} menuItems={menuItems} onAddToCart={onAddToCart}/>
             </div>
         </>
     )

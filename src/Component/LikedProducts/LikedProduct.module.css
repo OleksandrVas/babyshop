@@ -1,0 +1,22 @@
+.container {
+    display: flex;
+}
+
+.image {
+    width: 250px;
+    height: auto;
+    border-radius: 10px;
+}
+
+.description {
+    margin-left: 50px;
+}
+
+.navigationToShop {
+    display: flex;
+}
+
+.buttonHome > button > a {
+    text-decoration: none;
+    color: black;
+}

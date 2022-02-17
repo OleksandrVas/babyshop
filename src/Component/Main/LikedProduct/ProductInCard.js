@@ -16,7 +16,6 @@ const likerProduct = productsArray.reduce(
 const ProductInCard = ({id, quantity, onRemoveFromCart}) => {
 
     const [count, setCount] = useState(1)
-
     return (
         <Grid item xs={6}>
             <div className={classes.textStyle}>
