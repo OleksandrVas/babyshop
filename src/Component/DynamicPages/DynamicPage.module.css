@@ -1,0 +1,46 @@
+.colXs6 {
+    flex: 0 0 50%;
+    min-width: 50%;
+}
+
+
+.dynamicDescription{
+    margin-left: 25px;
+    width: 90%;
+}
+.dynamicDescription div {
+font-size: 25px ;
+    font-weight: bolder;
+    margin-bottom: 50px;
+}
+.dynamicDescription li {
+    margin-top: 15px ;
+    color: #a87a7a;
+    font-size: 20px;
+}
+.dynamicDescription span {
+    margin-top: 50px ;
+    font-size: 23px ;
+}
+.price {
+    font-size: 40px;
+    text-align: center;
+}
+.price > span {
+    color: gold;
+}
+.image {
+    width: 400px;
+    height: auto;
+}
+.imageToCenter {
+    text-align: center;
+    margin-top: 50px;
+}
+.selectorForAge {
+    max-width: 50px ;
+}
+.selectorForGender {
+    max-width: 50px ;
+    margin-top: 55px;
+}
