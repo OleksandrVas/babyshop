@@ -6,7 +6,7 @@ import classes from "./LikedProudcts.module.css"
 import LikedProductCard from "./LikedProductCard";
 
 
-const LikedProduct = ({addToCart , quantity, onRemoveFromCart}) => {
+const ProductInCart = ({addToCart , quantity, onRemoveFromCart}) => {
 
     return (
         <>
@@ -28,4 +28,4 @@ const LikedProduct = ({addToCart , quantity, onRemoveFromCart}) => {
     )
 }
 
-export default LikedProduct
+export default ProductInCart

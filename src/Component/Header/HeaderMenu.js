@@ -6,10 +6,6 @@ import {pink} from "@mui/material/colors";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import {NavLink} from "react-router-dom";
 
-import {keys} from "lodash";
-import productsArray from "../Products/ProductsArray";
-
-
 
 
 const HeaderMenu = ({likeCount, addToCart}) => {
@@ -22,6 +18,7 @@ const HeaderMenu = ({likeCount, addToCart}) => {
                 <NavLinkCreator to="/blog" text='BLOG'/>
                 <NavLinkCreator to="/client" text='CLIENT CENTER '/>
                 <NavLinkCreator to="/faq" text='FAQ '/>
+                <NavLinkCreator to="/cart" text={"CART"} />
                 <NavLink to="/liked">
                     <FavoriteIcon sx={{color: pink[500]}}/>
                 </NavLink>

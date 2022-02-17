@@ -18,8 +18,6 @@ const ProductsShopList = ({addLikeCount, onAddToCart}) => {
     const [buttons] = useState(allCategories);
     const [buttonsOfAge] = useState(allAge);
 
-console.log(menuItems)
-
     const filter = (button) => {
         if (button === "All") {
             return setMenuItems(productsArray)
