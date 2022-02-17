@@ -1,20 +1,28 @@
-import React from "react";
+import React, {useState} from "react";
 import GridComponent from "../../Grid/GridComponent";
-import {Grid} from "@mui/material";
-import ProductsListItem from "../../Products/ProductsListItem/ProductsListItem";
+import { Container} from "@mui/material";
+import {keys} from "lodash";
+import classes from "./LikedProudcts.module.css"
+import LikedProductCard from "./LikedProductCard";
 
-const LikedProduct = () => {
 
-
+const LikedProduct = ({addToCart , quantity, onRemoveFromCart}) => {
 
     return (
         <>
-            <GridComponent>
-                <Grid item xs={4} >
-                    {/*<ProductsListItem />*/}
-                </Grid>
+            <div className="container">
+                <div className={classes.wrapper}>
+                    <Container maxWidth="lg">
+                        <GridComponent>
+                            {keys(addToCart).map(id =>
+                               <LikedProductCard quantity={quantity} onRemoveFromCart={onRemoveFromCart} id={id} key={id} />
+                            )}
+                        </GridComponent>
+                    </Container>
+                </div>
 
-            </GridComponent>
+            </div>
+
 
         </>
     )

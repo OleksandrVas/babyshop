@@ -1,21 +1,25 @@
-import React from "react"
-import Typography from '@mui/material/Typography';
-import Pagination from '@mui/material/Pagination';
-import Stack from '@mui/material/Stack';
+import React  from "react"
+import classes from "./Pagination.module.css"
 
 
 
-const Paginator = () =>  {
-    const [page, setPage] = React.useState(1);
-    const handleChange = (event, value) => {
-        setPage(value);
-    };
+const Paginator = ({totalProducts=25, productPerPage=5 , pagination }) =>  {
+   const pageNumber = []
+
+    for (let i = 1 ; i <= Math.ceil(totalProducts / productPerPage) ; i++ ){
+        pageNumber.push(i)
+    }
     return (
-        <Stack spacing={2}>
-            <Typography>Page: {page}</Typography>
-            <Pagination count={3} page={page} onChange={handleChange} />
-        </Stack>
-    );
+        <div className={classes.toRow}>
+            <ul>
+                {pageNumber.map(numbers => (
+                    <li key={numbers} onClick={() => pagination(numbers)} className={classes.number} >
+                        <button>{numbers}</button>
+                    </li>
+                ))}
+            </ul>
+        </div>
+    )
 }
 
 export default Paginator

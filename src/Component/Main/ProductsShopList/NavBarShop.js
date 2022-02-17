@@ -1,10 +1,15 @@
-import React from "react"
+import React, {useState} from "react"
 import classes from "./NavBar.module.css"
-import NavLinkCreator from "../../NavLinkCreator/NavLinkCreator";
 import InputSlider from "../../Slider/Slider";
 
 
-const NavBarShop = () => {
+
+
+const NavBarShop = ({filter , button ,filteredByAge , buttonsOfAge}) => {
+
+
+    const toSortOfAge = buttonsOfAge.map(age => <li key={age.length[age]}><button onClick={() => filteredByAge(age)}>{age}</button></li>)
+
     return (
         <div className={"colXs3"}>
             <div className={classes.categories}>
@@ -12,9 +17,12 @@ const NavBarShop = () => {
             </div>
             <div className={classes.catalogOfClothes}>
                 <ul>
-                    <li><NavLinkCreator text="Bathrobes" to="/shop"/></li>
-                    <li><NavLinkCreator text="Bed sets" to="/shop"/></li>
-                    <li><NavLinkCreator text="Sleepwear" to="/shop"/></li>
+                    {
+                        button.map((cat) =>{
+                            return <li><button onClick={() => filter(cat)}> {cat}</button></li>
+                        }
+                        )
+                    }
                 </ul>
             </div>
             <div className={classes.categories}>
@@ -24,9 +32,7 @@ const NavBarShop = () => {
                 <ul>
                     <li>Age</li>
                     <li>
-                        <li><input type="checkbox"/> <span> 0 - 2 years </span></li>
-                        <li><input type="checkbox"/> <span> 2 - 4  years </span></li>
-                        <li><input type="checkbox"/> <span> 4 - 6  years </span></li>
+                        {toSortOfAge.reverse()}
                     </li>
                     <li>Color</li>
                     <li>Height</li>

@@ -1,0 +1,19 @@
+.wrapper {
+    margin-top: 30px;
+}
+.image {
+    height: auto;
+    width: 100%;
+}
+.toCenter {
+    text-align: center;
+}
+.productCount {
+    display: flex;
+    margin: 15px 0  ;
+    width: 100%;
+}
+.textStyle  {
+    font-size: 18px;
+    margin: 5px 0 ;
+}

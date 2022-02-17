@@ -1,9 +1,9 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import {BrowserRouter} from "react-router-dom";
 import Header from "./Component/Header/Header";
 import Footer from "./Component/Footer/Footer";
 import Main from "./Component/Main/Main";
-
+import {keys} from "lodash";
 const App = () => {
 
     const [likeCount, setLikeCount] = useState({
@@ -19,6 +19,8 @@ const App = () => {
 
     const [addToCart, setAddToCart] = useState({})
 
+
+
     const onAddToCart = (id, count) => {
         setAddToCart((prevState) => ({
             ...prevState,
@@ -26,11 +28,27 @@ const App = () => {
         }))
     }
 
+    const onRemoveFromCart = (id) => {
+        const prevState = {...addToCart}
+        delete(prevState[id])
+        setAddToCart(prevState)
+    }
+
+    const quantity = (id , count ) => {
+        setAddToCart((prevState => ({
+            ...prevState ,
+            [id] : count
+        })))
+    }
+
+
+
     return (
         <BrowserRouter>
             <div>
                 <Header likeCount={likeCount} addToCart={addToCart}/>
-                <Main likeCount={likeCount} addLikeCount={addLikeCount} onAddToCart={onAddToCart}/>
+                <Main addToCart={addToCart} likeCount={likeCount} onRemoveFromCart={onRemoveFromCart} addLikeCount={addLikeCount}
+                      onAddToCart={onAddToCart} quantity={quantity}/>
                 <Footer/>
             </div>
         </BrowserRouter>
