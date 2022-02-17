@@ -13,7 +13,7 @@ const likerProduct = productsArray.reduce(
     }), {})
 
 
-const LikedProductCard = ({id, quantity, onRemoveFromCart}) => {
+const ProductInCard = ({id, quantity, onRemoveFromCart}) => {
 
     const [count, setCount] = useState(1)
 
@@ -41,4 +41,4 @@ const LikedProductCard = ({id, quantity, onRemoveFromCart}) => {
     )
 }
 
-export default LikedProductCard
+export default ProductInCard

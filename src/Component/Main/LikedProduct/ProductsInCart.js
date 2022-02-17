@@ -3,10 +3,10 @@ import GridComponent from "../../Grid/GridComponent";
 import { Container} from "@mui/material";
 import {keys} from "lodash";
 import classes from "./LikedProudcts.module.css"
-import LikedProductCard from "./LikedProductCard";
+import ProductInCard from "./ProductInCard";
 
 
-const ProductInCart = ({addToCart , quantity, onRemoveFromCart}) => {
+const ProductsInCart = ({addToCart , quantity, onRemoveFromCart}) => {
 
     return (
         <>
@@ -15,7 +15,7 @@ const ProductInCart = ({addToCart , quantity, onRemoveFromCart}) => {
                     <Container maxWidth="lg">
                         <GridComponent>
                             {keys(addToCart).map(id =>
-                               <LikedProductCard quantity={quantity} onRemoveFromCart={onRemoveFromCart} id={id} key={id} />
+                               <ProductInCard quantity={quantity} onRemoveFromCart={onRemoveFromCart} id={id} key={id} />
                             )}
                         </GridComponent>
                     </Container>
@@ -28,4 +28,4 @@ const ProductInCart = ({addToCart , quantity, onRemoveFromCart}) => {
     )
 }
 
-export default ProductInCart
+export default ProductsInCart

@@ -1,7 +1,7 @@
 import React from "react";
 import {Route, Routes} from "react-router-dom";
 import Home from "./Home/Home";
-import ProductInCart from "./LikedProduct/ProductInCart";
+import ProductsInCart from "./LikedProduct/ProductsInCart";
 import ProductsShopList from "./ProductsShopList/ProductsShopList";
 
 
@@ -15,7 +15,7 @@ const Main = ({addLikeCount ,quantity, likeCount,onRemoveFromCart  , onAddToCart
                 <ProductsShopList addLikeCount={addLikeCount} onAddToCart={onAddToCart}  />
             }/>
             <Route path="/cart" element={
-                <ProductInCart quantity={quantity} onRemoveFromCart={onRemoveFromCart} addToCart={addToCart} />
+                <ProductsInCart quantity={quantity} onRemoveFromCart={onRemoveFromCart} addToCart={addToCart} />
             }/>
         </Routes>
     )
