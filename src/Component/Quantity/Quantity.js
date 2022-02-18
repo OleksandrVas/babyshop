@@ -2,7 +2,8 @@ import React from "react"
 import classes from "../Main/LikedProduct/LikedProudcts.module.css";
 import {Button, TextField} from "@mui/material";
 
-const Quantity = ({count , onDecrementButtonClick , id ,  onRemoveFromCart , onIncrementButtonClick }) => {
+const Quantity = ({count ,  id ,onIncrementButtonClick , onDecrementButtonClick,  onRemoveFromCart  }) => {
+
 
     const removeFromCart= () => {
         if (count === 1 ){

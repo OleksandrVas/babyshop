@@ -35,7 +35,7 @@ const Main = ({
                 <LikedProducts addToLiked={addToLiked} onRemoveFromFavourite={onRemoveFromFavourite}/>
             }/>
             <Route path="/product/:id" element={
-                <DynamicPage/>
+                <DynamicPage onAddToCart={onAddToCart} />
             }/>
         </Routes>
     )

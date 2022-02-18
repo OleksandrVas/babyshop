@@ -37,7 +37,8 @@ const ProductsListItem = ({nameOfProduct,onRemoveFromFavourite, onAddToLiked, sr
                         </div>
                         <div className={classes.positionOfLike}>
                             <IconButton aria-label="add to favorites" onClick={onLiked}>
-                                <FavoriteIcon sx={liked ?  {color: pink[500]} : {color: grey[600]}  }/>
+                                {liked && <FavoriteIcon sx={liked && {color: pink[500]}   }/>}
+                                {!liked && <FavoriteIcon sx={liked && {color: grey[600]}  }/>}
                             </IconButton>
                             <IconButton aria-label="share">
                                 <ShareIcon/>

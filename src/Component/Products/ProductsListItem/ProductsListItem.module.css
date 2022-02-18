@@ -9,6 +9,13 @@
 .nameOfProduct {
     text-align: center;
 }
+.nameOfProduct > h3 > a {
+    text-decoration: none;
+    color: black ;
+}
+.nameOfProduct > h3 > a:hover {
+    color: gold;
+}
 .liked {
     color: pink;
 }
