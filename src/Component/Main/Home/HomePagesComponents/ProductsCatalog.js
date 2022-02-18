@@ -9,7 +9,7 @@ const ProductsCatalog = ({addToLiked, onAddToLiked, likeCount,addLikeCount, onAd
         <>
             <ProductsList addToLiked={addToLiked} onAddToLiked={onAddToLiked} onAddToCart={onAddToCart} likeCount={likeCount} addLikeCount={addLikeCount}/>
             <ProductSaleOfProducts price={"30"}/>
-            <ProductsBestsellers />
+            {/*<ProductsBestsellers />*/}
         </>
     )
 }

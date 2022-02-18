@@ -55,8 +55,6 @@ const App = () => {
         })))
     }
 
-    console.log(addToCart)
-
     return (
         <BrowserRouter>
             <div>

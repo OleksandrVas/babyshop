@@ -16,7 +16,7 @@ const LikedProducts = ({addToLiked ,onRemoveFromFavourite}) => {
                 </GridComponent>
                 <Grid container columns={16} spacing={3} >
                     {keys(addToLiked).map(
-                        id => <LikedProductCart key={id} id={id} onRemoveFromFavourite={onRemoveFromFavourite}/>
+                        id => <LikedProductCart addToLiked={addToLiked} key={id} id={id} onRemoveFromFavourite={onRemoveFromFavourite}/>
                     )}
                 </Grid>
 
