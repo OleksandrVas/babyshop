@@ -15,7 +15,7 @@ const ProductsList = ({ onAddToLiked,addToLiked, addLikeCount ,onAddToCart }) =>
             <GridComponent>
                 {productsArray.map(({nameOfProduct, src, price, id}) =>
                     <Grid item xs={4} key={id}>
-                        <ProductsListItem addToLiked={addToLiked}  id={id} onAddToLiked={onAddToLiked} onAddToCart={onAddToCart}  src={src} price={price} nameOfProduct={nameOfProduct} addLikeCount={addLikeCount} />
+                        <ProductsListItem isLiked={addToLiked[id]}  id={id} onAddToLiked={onAddToLiked} onAddToCart={onAddToCart}  src={src} price={price} nameOfProduct={nameOfProduct} addLikeCount={addLikeCount} />
                     </Grid>)}
             </GridComponent>
             <ButtonToShop/>

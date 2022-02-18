@@ -8,21 +8,17 @@ import {pink, grey} from "@mui/material/colors";
 import {NavLink} from "react-router-dom";
 import {isEmpty} from "lodash";
 
-const ProductsListItem = ({nameOfProduct, onRemoveFromFavourite , onAddToLiked, src, price, onAddToCart, id, addToLiked, categories}) => {
+const ProductsListItem = ({nameOfProduct, onRemoveFromFavourite , onAddToLiked, src, price, onAddToCart, id, isLiked = false , categories}) => {
 
 
     const onLikedProduct = () => {
-        if(addToLiked[id] === undefined ){
-            return () => onAddToLiked(id , true )
-        } else if(addToLiked[id] === true) {
+         if(isLiked === true) {
             return () => onAddToLiked(id , false )
         }
         return () => onAddToLiked(id , true )
     }
 
-    console.log(addToLiked)
-
-    return (
+        return (
         <>
             <Card>
                 <CardContent>
@@ -40,9 +36,7 @@ const ProductsListItem = ({nameOfProduct, onRemoveFromFavourite , onAddToLiked, 
                         </div>
                         <div className={classes.positionOfLike}>
                             <IconButton aria-label="add to favorites" onClick={onLikedProduct()}>
-                                {addToLiked[id] === undefined &&  <FavoriteIcon sx={{color: grey[600]}}/> }
-                                { addToLiked[id] === true && <FavoriteIcon sx={{color: pink[500]}} />  }
-                                { addToLiked[id] === false && <FavoriteIcon sx={{color: grey[600]}} />  }
+                                <FavoriteIcon sx={isLiked ? {color: pink[500]} :{color: grey[600]} } />
                             </IconButton>
                             <IconButton aria-label="share">
                                 <ShareIcon/>
