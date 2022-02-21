@@ -8,29 +8,21 @@ import DynamicPage from "../DynamicPages/DynamicPage";
 
 
 const Main = ({
-                  addLikeCount,
-                  onAddToLiked,
-                  onRemoveFromFavourite,
-                  quantity,
-                  addToLiked,
-                  likeCount,
-                  onRemoveFromCart,
                   onAddToCart,
-                  addToCart
               }) => {
     return (
         <Routes>
             <Route path="/" element={
-                <Home addLikeCount={addLikeCount} likeCount={likeCount}/>
+                <Home/>
             }/>
             <Route path="/shop" element={
-                <ProductsShopList addLikeCount={addLikeCount} />
+                <ProductsShopList  />
             }/>
             <Route path="/cart" element={
-                <ProductsInCart quantity={quantity} onRemoveFromCart={onRemoveFromCart} addToCart={addToCart}/>
+                <ProductsInCart />
             }/>
             <Route path="/likedProduct" element={
-                <LikedProducts addToLiked={addToLiked} onRemoveFromFavourite={onRemoveFromFavourite}/>
+                <LikedProducts  />
             }/>
             <Route path="/product/:id" element={
                 <DynamicPage onAddToCart={onAddToCart} />

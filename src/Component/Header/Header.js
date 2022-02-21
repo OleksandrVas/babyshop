@@ -4,12 +4,12 @@ import '../../App.css'
 import Logo from "../Logo/Logo";
 import HeaderMenu from "./HeaderMenu";
 
-const Header = ({likeCount }) => {
+const Header = ({ }) => {
     return (
         <div className={classes.header}>
             <div className='container'>
                 <Logo/>
-                <HeaderMenu likeCount={likeCount}/>
+                <HeaderMenu />
             </div>
         </div>
     )
