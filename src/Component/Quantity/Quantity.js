@@ -7,17 +7,17 @@ const Quantity = ({count ,  id ,onIncrementButtonClick , onDecrementButtonClick,
 
     const removeFromCart= () => {
         if (count === 1 ){
-            return onRemoveFromCart(id)
+            return  onRemoveFromCart(id)
         }
-        return onDecrementButtonClick()
+        return onDecrementButtonClick(id)
     }
 
     return (
         <>
             <div className={classes.productCount}>
-                <Button onClick={removeFromCart} disabled={count === 0} >-</Button>
+                <Button onClick={() => removeFromCart()} disabled={count === 0} >-</Button>
                 <TextField size="small" variant="outlined" value={count}/>
-                <Button onClick={onIncrementButtonClick} disabled={count === 5}>+</Button>
+                <Button onClick={() => onIncrementButtonClick()} disabled={count === 5}>+</Button>
             </div>
         </>
     )

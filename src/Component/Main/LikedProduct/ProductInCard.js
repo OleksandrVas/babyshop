@@ -6,8 +6,8 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import Quantity from "../../Quantity/Quantity";
 
 
-const ProductInCard = ({id, quantity, addToCart, onRemoveFromCart}) => {
-
+const ProductInCard = ({id, changeProductQuantity, productInCart, onRemoveFromCart }) => {
+console.log(id)
 
     return (
         <Grid item xs={6}>
@@ -20,20 +20,21 @@ const ProductInCard = ({id, quantity, addToCart, onRemoveFromCart}) => {
                     <h4>price : {productObject(productsArray)[id].price} $</h4>
                     <h4>age : {productObject(productsArray)[id].age} years</h4>
                     <h4>for : {productObject(productsArray)[id].gender} </h4>
-                    <h4>Current price : {productObject(productsArray)[id].price * addToCart[id] } $ </h4>
+                    <h4>Current price : {productObject(productsArray)[id].price * productInCart[id] } $ </h4>
 
                 </div>
             </div>
 
             <div className={classes.toCenter}>
-                <Quantity count={addToCart[id]} id={productObject(productsArray)[id].id} onRemoveFromCart={onRemoveFromCart}
-                          onIncrementButtonClick={() => quantity(productObject(productsArray)[id].id, addToCart[id] + 1)}
-                          onDecrementButtonClick={() => quantity(productObject(productsArray)[id].id, addToCart[id] - 1)}/>
+                <Quantity count={productInCart[id]} id={productObject(productsArray)[id].id} onRemoveFromCart={onRemoveFromCart}
+                          onIncrementButtonClick={() => changeProductQuantity(id, productInCart[id] + 1)}
+                          onDecrementButtonClick={() => changeProductQuantity(id, productInCart[id] - 1)}/>
 
                 <Button><DeleteIcon onClick={() => onRemoveFromCart(productObject(productsArray)[id].id)}/></Button>
             </div>
         </Grid>
     )
 }
+
 
 export default ProductInCard

@@ -4,15 +4,16 @@ import BreadCrumbs from "../../BreadCrumbs/BreadCrumbs";
 import NavBarShop from "./NavBarShop";
 import ProductShopCatalog from "./ProductShopCatalog";
 import productsArray from "../../Products/ProductsArray";
+import {connect} from "react-redux";
 
 
-const allCategories = ['All', ...new Set(productsArray.map(item => item.categories))]
+const allCategories = [ 'All', ...new Set(productsArray.map(item => item.categories))]
 
 const allAge = [...new Set(productsArray.map(item => item.age))]
 
 
 
-const ProductsShopList = ({ onRemoveFromFavourite,addToLiked , addLikeCount, onAddToLiked, onAddToCart}) => {
+const ProductsShopList = ({}) => {
 
     const [menuItems, setMenuItems] = useState(productsArray)
     const [buttons] = useState(allCategories);
@@ -40,7 +41,7 @@ const ProductsShopList = ({ onRemoveFromFavourite,addToLiked , addLikeCount, onA
             <BreadCrumbs/>
             <div className={"colXs12"}>
                 <NavBarShop buttonsOfAge={buttonsOfAge} filter={filter} button={buttons} filteredByAge={filteredByAge}/>
-                <ProductShopCatalog onRemoveFromFavourite={onRemoveFromFavourite} addToLiked={addToLiked} onAddToLiked={onAddToLiked} addLikeCount={addLikeCount} menuItems={menuItems} onAddToCart={onAddToCart}/>
+                <ProductShopCatalog  menuItems={menuItems}/>
             </div>
         </>
     )

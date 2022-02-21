@@ -5,9 +5,10 @@ import {Grid} from "@mui/material";
 import ProductsListItem from "../../Products/ProductsListItem/ProductsListItem";
 import Paginator from "../../Pagination/Pagination";
 import FilterByCount from "./FilterByCount";
+import {connect} from "react-redux";
 
 
-const ProductShopCatalog = ({onRemoveFromFavourite,onAddToLiked, onAddToCart, addLikeCount ,addToLiked, menuItems }) => {
+const ProductShopCatalog = ({ addLikeCount ,menuItems }) => {
 
     const [filterCountInRow, setFilterCountInRow] = useState(5)
 
@@ -40,8 +41,8 @@ const ProductShopCatalog = ({onRemoveFromFavourite,onAddToLiked, onAddToCart, ad
                     <GridComponent>
                         {currentPage.map(({nameOfProduct, src, price, id , categories}) =>
                             <Grid item xs={filterCountInRow} key={id}>
-                                <ProductsListItem id={id} onRemoveFromFavourite={onRemoveFromFavourite} onAddToLiked={onAddToLiked} onAddToCart={onAddToCart}
-                                                  src={src} price={price} addToLiked={addToLiked}
+                                <ProductsListItem id={id}
+                                                  src={src} price={price}
                                                   nameOfProduct={nameOfProduct}
                                                   addLikeCount={addLikeCount}
                                                   categories={categories}/>
@@ -58,4 +59,7 @@ const ProductShopCatalog = ({onRemoveFromFavourite,onAddToLiked, onAddToCart, ad
         </>
     )
 }
-export default ProductShopCatalog
+
+
+
+export default connect( )(ProductShopCatalog)

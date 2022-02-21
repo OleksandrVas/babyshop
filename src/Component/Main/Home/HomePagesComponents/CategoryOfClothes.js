@@ -8,7 +8,7 @@ const CategoryOfClothes = () => {
         <>
             <div className={classes.container}>
                 {categoryArray.map(({category, to , id   }) =>
-                    <Link to={to} className={classes.clothesLink}>{category}</Link> )}
+                    <Link to={to} key={id } className={classes.clothesLink}>{category}</Link> )}
             </div>
         </>
     )

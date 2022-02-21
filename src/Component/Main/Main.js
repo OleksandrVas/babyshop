@@ -21,12 +21,10 @@ const Main = ({
     return (
         <Routes>
             <Route path="/" element={
-                <Home addLikeCount={addLikeCount} likeCount={likeCount} addToLiked={addToLiked}
-                      onAddToLiked={onAddToLiked} onAddToCart={onAddToCart}/>
+                <Home addLikeCount={addLikeCount} likeCount={likeCount}/>
             }/>
             <Route path="/shop" element={
-                <ProductsShopList addToLiked={addToLiked} onRemoveFromFavourite={onRemoveFromFavourite}
-                                  addLikeCount={addLikeCount} onAddToLiked={onAddToLiked} onAddToCart={onAddToCart}/>
+                <ProductsShopList addLikeCount={addLikeCount} />
             }/>
             <Route path="/cart" element={
                 <ProductsInCart quantity={quantity} onRemoveFromCart={onRemoveFromCart} addToCart={addToCart}/>

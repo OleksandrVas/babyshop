@@ -7,14 +7,14 @@ import ProductInCard from "./ProductInCard";
 import ButtonToShop from "../../ButtonToShop/ButtonToShop";
 import SentimentVeryDissatisfiedIcon from '@mui/icons-material/SentimentVeryDissatisfied';
 import productsArray, {productObject} from "../../Products/ProductsArray";
+import {connect} from "react-redux";
 
-const ProductsInCart = ({addToCart, quantity, onRemoveFromCart}) => {
-    console.log(addToCart)
-    return (
+const ProductsInCart = ({ changeProductQuantity , onRemoveFromCart , productInCart }) => {
+     return (
         <>
             <div className="container">
                 <div className={classes.wrapper}>
-                    {isEmpty(addToCart) && <div className={classes.containerForEmpty}>
+                    {isEmpty(productInCart) && <div className={classes.containerForEmpty}>
                         <GridComponent>
                             <h1>Your Cart is Empty now</h1>
                             <div className={classes.sadSmile}><SentimentVeryDissatisfiedIcon/></div>
@@ -24,15 +24,16 @@ const ProductsInCart = ({addToCart, quantity, onRemoveFromCart}) => {
                     </div>}
                     <Container maxWidth="lg">
                         <GridComponent>
-                            {keys(addToCart).map(id =>
-                                <ProductInCard addToCart={addToCart} quantity={quantity}
-                                               onRemoveFromCart={onRemoveFromCart} id={id} key={id}/>
+                            {keys(productInCart).map(id =>
+                                <ProductInCard  changeProductQuantity={changeProductQuantity}
+                                                productInCart={productInCart}
+                                                onRemoveFromCart={onRemoveFromCart} id={id} key={id}/>
                             )}
                         </GridComponent>
-                        {!isEmpty(addToCart) && <div>
-                            Total Price : {keys(addToCart).reduce(
+                        {!isEmpty(productInCart) && <div>
+                            Total Price : {keys(productInCart).reduce(
                             (total , object) =>(
-                                total  + (productObject(productsArray)[object].price * addToCart[object]  )
+                                total  + (productObject(productsArray)[object].price * productInCart[object]  )
                             )
                             ,0)} $
                         </div>}
@@ -46,4 +47,14 @@ const ProductsInCart = ({addToCart, quantity, onRemoveFromCart}) => {
     )
 }
 
-export default ProductsInCart
+
+const mapStateToProps = (state  ) => ({
+    productInCart : state.cartProductList
+})
+
+const mapDispatchToProps = (dispatch) => ({
+    onRemoveFromCart : (id) => dispatch({type : "REMOVE_FROM_CART" , id }),
+    changeProductQuantity : (id, count ) => dispatch({type : "CHANGE_PRODUCT_QUANTITY" , id , count  })
+})
+
+export default connect(mapStateToProps , mapDispatchToProps )(ProductsInCart)

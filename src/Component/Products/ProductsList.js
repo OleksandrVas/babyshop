@@ -7,7 +7,7 @@ import GridComponent from "../Grid/GridComponent";
 import ButtonToShop from "../ButtonToShop/ButtonToShop";
 
 
-const ProductsList = ({ onAddToLiked,addToLiked, addLikeCount ,onAddToCart }) => {
+const ProductsList = ({  addLikeCount  }) => {
 
     return (
         <>
@@ -15,7 +15,7 @@ const ProductsList = ({ onAddToLiked,addToLiked, addLikeCount ,onAddToCart }) =>
             <GridComponent>
                 {productsArray.map(({nameOfProduct, src, price, id}) =>
                     <Grid item xs={4} key={id}>
-                        <ProductsListItem isLiked={addToLiked[id]}  id={id} onAddToLiked={onAddToLiked} onAddToCart={onAddToCart}  src={src} price={price} nameOfProduct={nameOfProduct} addLikeCount={addLikeCount} />
+                        <ProductsListItem  id={id}  src={src} price={price} nameOfProduct={nameOfProduct} addLikeCount={addLikeCount} />
                     </Grid>)}
             </GridComponent>
             <ButtonToShop/>

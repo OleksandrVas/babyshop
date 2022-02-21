@@ -35,13 +35,6 @@ const App = () => {
 
 
 
-    const onAddToCart = (id, count) => {
-        setAddToCart((prevState) => ({
-            ...prevState,
-            [id]: (prevState[id] || 0) + count
-        }))
-    }
-
     const onRemoveFromCart = (id) => {
         const prevState = {...addToCart}
         delete(prevState[id])
@@ -56,14 +49,12 @@ const App = () => {
     }
 
     return (
-        <BrowserRouter>
             <div>
                 <Header likeCount={likeCount} addToCart={addToCart}/>
                 <Main addToCart={addToCart} addToLiked={addToFavourite} likeCount={likeCount} onRemoveFromCart={onRemoveFromCart} addLikeCount={addLikeCount}
-                      onRemoveFromFavourite={onRemoveFromFavourite} onAddToCart={onAddToCart} quantity={quantity} onAddToLiked={onAddToLiked}/>
+                      onRemoveFromFavourite={onRemoveFromFavourite}  quantity={quantity} onAddToLiked={onAddToLiked}/>
                 <Footer/>
             </div>
-        </BrowserRouter>
     )
 }
 export default App;
