@@ -21,6 +21,9 @@ const productListReducer = (state = {
                 [action.id] :  action.count
             }
         }
+        case "CLEAR_ALL_CART" : {
+            return  state = {}
+        }
         default :
             return state
     }

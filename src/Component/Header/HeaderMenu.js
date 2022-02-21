@@ -5,9 +5,12 @@ import NavLinkCreator from "../NavLinkCreator/NavLinkCreator";
 import {pink} from "@mui/material/colors";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import {NavLink} from "react-router-dom";
-import {keys} from "lodash/object";
+import {connect} from "react-redux";
+import sumReduce from "../sumReduce /sumRedcue";
+import RemoveShoppingCartIcon from '@mui/icons-material/RemoveShoppingCart';
+import {Button} from "@mui/material";
 
-const HeaderMenu = ({likeCount, addToCart}) => {
+const HeaderMenu = ({likeCount = 0, clearCart, productsInCart}) => {
     return (
         <div className='container'>
             <div className={classes.rowForMenu}>
@@ -19,18 +22,25 @@ const HeaderMenu = ({likeCount, addToCart}) => {
                 <NavLinkCreator to="/faq" text='FAQ '/>
                 <NavLinkCreator to="/cart" text={"CART"} />
                 <div className={classes.countOfProductInCart}>
-                    product in cart :  {keys(addToCart).reduce(
-                    (total , object) => (
-                        total + (addToCart[object])
-                    )
-                    , 0)}
+                    product in cart :  {sumReduce(productsInCart)}
+                    <Button onClick={ ()=>clearCart()} ><RemoveShoppingCartIcon /></Button>
                 </div>
                 <NavLink to="/likedProduct">
                     <FavoriteIcon sx={{color: pink[500]}}/>
                 </NavLink>
-                <span>{likeCount.totalLiked === 0 ? "" : likeCount.totalLiked}</span>
+                <span>{sumReduce(likeCount)}</span>
             </div>
         </div>
     )
 }
-export default HeaderMenu
+
+const mapStateToProps = (state) => ({
+    productsInCart : state.cartProductList ,
+    likeCount : state.productsLikeState
+})
+const mapDispatchToProps = (dispatch) => ({
+    clearCart : () => dispatch({type : "CLEAR_ALL_CART"})
+})
+
+
+export default connect(mapStateToProps ,mapDispatchToProps)(HeaderMenu)
