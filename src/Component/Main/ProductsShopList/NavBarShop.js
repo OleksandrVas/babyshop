@@ -8,7 +8,7 @@ import InputSlider from "../../Slider/Slider";
 const NavBarShop = ({filter , button ,filteredByAge , buttonsOfAge}) => {
 
 
-    const toSortOfAge = buttonsOfAge.map(age => <li key={age.length[age]}><button onClick={() => filteredByAge(age)}>{age}</button></li>)
+    const toSortOfAge = buttonsOfAge.map(age => <li key={age} ><button onClick={() => filteredByAge(age)}>{age}</button></li>)
 
     return (
         <div className={"colXs3"}>
@@ -19,7 +19,7 @@ const NavBarShop = ({filter , button ,filteredByAge , buttonsOfAge}) => {
                 <ul>
                     {
                         button.map((cat) =>{
-                            return <li><button onClick={() => filter(cat)}> {cat}</button></li>
+                            return <li key={cat} ><button onClick={() => filter(cat)}> {cat}</button></li>
                         }
                         )
                     }
@@ -31,15 +31,15 @@ const NavBarShop = ({filter , button ,filteredByAge , buttonsOfAge}) => {
             <div className={classes.catalogOfClothes}>
                 <ul>
                     <li>Age</li>
-                    <li>
+                    <ul>
                         {toSortOfAge.reverse()}
-                    </li>
+                    </ul>
                     <li>Color</li>
                     <li>Height</li>
-                    <li>
+                    <ul>
                         <li>Filter by price</li>
                         <li><InputSlider/></li>
-                    </li>
+                    </ul>
 
                 </ul>
             </div>

@@ -8,13 +8,13 @@ import ButtonHome from "../ButtonArray/ButtonHome";
 
 
 
-const LikedProductCart = ({id , likedProducts , removeFromLikedProducts}) => {
+const LikedProductCart = ({id  , removeFromLikedProducts}) => {
 
     const productObj = productObject(productsArray)[id]
 
     return (
         <>
-            {likedProducts[id] ? <Grid item  xs={16}>
+             <Grid item  xs={16}>
                 <div className={classes.container}>
                     <div>
                         <img className={classes.image} src={productObj.src} />
@@ -34,7 +34,7 @@ const LikedProductCart = ({id , likedProducts , removeFromLikedProducts}) => {
                         </div>
                     </div>
                 </div>
-            </Grid> : ""}
+            </Grid>
         </>
     )
 }

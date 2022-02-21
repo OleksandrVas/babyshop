@@ -17,7 +17,7 @@ const Home = ({likeCount = 0 }) => {
             <div className={classes.homePage}>
                 <div className={classes.likeCount}>
                     <div className={classes.containerForLikeCount}>
-                        <NavLink to="/liked" >
+                        <NavLink to="/likedProduct" >
                             <FavoriteIcon  sx={{color: pink[500]} }/>
                         </NavLink>
                         <span>{sumReduce(likeCount) === 0 ? "" : sumReduce(likeCount)}</span>

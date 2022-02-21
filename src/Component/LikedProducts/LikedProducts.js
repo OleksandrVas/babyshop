@@ -6,8 +6,8 @@ import GridComponent from "../Grid/GridComponent";
 import {connect} from "react-redux";
 
 
-const LikedProducts = ({likedProducts  , removeFromLikedProducts}) => {
-
+const LikedProducts = ({likedProducts, removeFromLikedProducts}) => {
+console.log(likedProducts)
 
     return (
         <>
@@ -15,23 +15,24 @@ const LikedProducts = ({likedProducts  , removeFromLikedProducts}) => {
                 <GridComponent>
                     <h1>Your Liked Products</h1>
                 </GridComponent>
-                <Grid container columns={16} spacing={3} >
-                    {keys(likedProducts).map(
-                        id => <LikedProductCart  removeFromLikedProducts={removeFromLikedProducts} likedProducts={likedProducts} key={id} id={id} />
-                    )}
+                <Grid container columns={16} spacing={3}>
+                    {
+                        keys(likedProducts).map(
+                        id => <LikedProductCart removeFromLikedProducts={removeFromLikedProducts} key={id} id={id}/>)
+                    }
                 </Grid>
-
             </Container>
         </>
     )
 }
 
 const mapStateToProps = (state) => ({
-    likedProducts : state.productsLikeState
+    likedProducts: state.productsLikeState ,
+
 })
-const mapDispatchToProps = (dispatch) =>({
-    removeFromLikedProducts : (id) => dispatch({type : "REMOVE_FROM_LIKE" , id })
+const mapDispatchToProps = (dispatch) => ({
+    removeFromLikedProducts: (id) => dispatch({type: "REMOVE_FROM_LIKE", id})
 })
 
 
-export default connect(mapStateToProps , mapDispatchToProps)(LikedProducts)
+export default connect(mapStateToProps, mapDispatchToProps)(LikedProducts)

@@ -1,10 +1,7 @@
 import {omit} from "lodash";
 
 
-const productListReducer = (state = {
-    1 : 2 ,
-    3 : 4
-} , action) => {
+const productListReducer = (state = {} , action) => {
     switch (action.type) {
         case "ADD_TO_CART" : {
           return {

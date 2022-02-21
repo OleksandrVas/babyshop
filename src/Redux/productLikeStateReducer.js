@@ -1,7 +1,4 @@
-const productLikeStateReducer = (state = {
-    1 : true ,
-    2 : true
-}, action) => {
+const productLikeStateReducer = (state = {}, action) => {
     switch (action.type) {
         case "ADD_LIKE" : {
             return {
