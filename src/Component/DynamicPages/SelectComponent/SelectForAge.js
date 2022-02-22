@@ -21,7 +21,7 @@ const SelectForAge = ({array ,type}) => {
                         id: 'uncontrolled-native',
                     }}
                 >
-                    {array.map(item => <option value={item}>{item}</option>).reverse()}
+                    {array.map(item => <option key={item} value={item}>{item}</option>).reverse()}
                 </NativeSelect>
             </FormControl>
         </Box>

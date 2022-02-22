@@ -3,7 +3,6 @@
     min-width: 50%;
 }
 
-
 .dynamicDescription{
     margin-left: 25px;
     width: 90%;
@@ -43,4 +42,27 @@ font-size: 25px ;
 .selectorForGender {
     max-width: 50px ;
     margin-top: 55px;
+}
+.selectCategory {
+    padding: 25px 50px;
+}
+.valueForDynamicPage {
+    max-width: 70px;
+    text-align: center;
+}
+.nonDecoration   {
+    text-decoration: none;
+}
+.nonDecoration > button {
+    color: #e35a89;
+}
+.showBtn {
+    text-align: center;
+    margin-top: 50px;
+}
+.toRowLike >  span {
+    font-size: 20px;
+}
+.doYouLike {
+    margin: 15px 0 ;
 }

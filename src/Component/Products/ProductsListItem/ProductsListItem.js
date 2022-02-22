@@ -6,6 +6,7 @@ import classes from './ProductsListItem.module.css'
 import {pink, grey} from "@mui/material/colors";
 import {NavLink} from "react-router-dom";
 import {connect} from "react-redux";
+import AddToCartBtn from "../../AddToCart/AddToCartBtn";
 
 const ProductsListItem = ({
                               nameOfProduct,
@@ -41,10 +42,7 @@ const ProductsListItem = ({
                             <h3>{categories}</h3>  {/*to link*/}
                         </div>
                         <div className={classes.priceOfProduct}> <span>{price} $ </span></div>
-                        <div className={classes.addToCart}>
-                            <Button variant={"text"} className={classes.addToCartBTN} onClick={() => onAddToCart(id, 1)}>Add to cart</Button>
-                        </div>
-
+                        <AddToCartBtn onAddToCart={onAddToCart} id={id} />
                     </div>
                 </CardContent>
             </Card>
