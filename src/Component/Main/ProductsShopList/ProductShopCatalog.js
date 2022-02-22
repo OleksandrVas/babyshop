@@ -37,10 +37,10 @@ const ProductShopCatalog = ({ addLikeCount ,menuItems }) => {
                     <FilterByCount onSetFilterCountInPage={onSetFilterCountInPage}
                                    onSetFilterCountInRow={onSetFilterCountInRow}/>
                 </div>
-                <div>
+                <div className={classes.gridItemForProductList}>
                     <GridComponent>
                         {currentPage.map(({nameOfProduct, src, price, id , categories}) =>
-                            <Grid item xs={filterCountInRow} key={id}>
+                            <Grid item xs={filterCountInRow} className={classes.gridItemForProductList} key={id}>
                                 <ProductsListItem id={id}
                                                   src={src} price={price}
                                                   nameOfProduct={nameOfProduct}

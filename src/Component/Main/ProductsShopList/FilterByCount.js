@@ -10,10 +10,6 @@ const FilterByCount = ({onSetFilterCountInPage , onSetFilterCountInRow }) => {
                     <div onClick={() => onSetFilterCountInPage(3)}>3</div>
                     <div onClick={() => onSetFilterCountInPage(6)}>6</div>
                     <div onClick={() => onSetFilterCountInPage(8)}>8</div>
-                    <div>Row :</div>
-                    <div onClick={() => onSetFilterCountInRow(6)}>2</div>
-                    <div onClick={() => onSetFilterCountInRow(5)}>3</div>
-                    <div onClick={() => onSetFilterCountInRow(4)}>4</div>
                 </div>
             </div>
         </>

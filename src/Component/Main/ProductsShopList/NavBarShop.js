@@ -1,14 +1,15 @@
-import React, {useState} from "react"
+import React  from "react"
 import classes from "./NavBar.module.css"
 import InputSlider from "../../Slider/Slider";
 
 
+const NavBarShop = ({filter, button, filteredByAge, buttonsOfAge}) => {
 
 
-const NavBarShop = ({filter , button ,filteredByAge , buttonsOfAge}) => {
-
-
-    const toSortOfAge = buttonsOfAge.map(age => <li key={age} ><button onClick={() => filteredByAge(age)}>{age}</button></li>)
+    const toSortOfAge = buttonsOfAge
+        .map(age => <li key={age}>
+            <button onClick={() => filteredByAge(age) } className={classes.btnOfFilter}>{age}</button>
+        </li>)
 
     return (
         <div className={"colXs3"}>
@@ -18,9 +19,11 @@ const NavBarShop = ({filter , button ,filteredByAge , buttonsOfAge}) => {
             <div className={classes.catalogOfClothes}>
                 <ul>
                     {
-                        button.map((cat) =>{
-                            return <li key={cat} ><button onClick={() => filter(cat)}> {cat}</button></li>
-                        }
+                        button.map((cat) => {
+                                return <li key={cat}>
+                                    <button onClick={() => filter(cat)} className={classes.btnOfFilter}> {cat}</button>
+                                </li>
+                            }
                         )
                     }
                 </ul>
@@ -34,13 +37,6 @@ const NavBarShop = ({filter , button ,filteredByAge , buttonsOfAge}) => {
                     <ul>
                         {toSortOfAge.reverse()}
                     </ul>
-                    <li>Color</li>
-                    <li>Height</li>
-                    <ul>
-                        <li>Filter by price</li>
-                        <li><InputSlider/></li>
-                    </ul>
-
                 </ul>
             </div>
 

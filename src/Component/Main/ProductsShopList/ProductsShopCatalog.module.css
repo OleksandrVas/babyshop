@@ -19,3 +19,6 @@
 .paginator {
     text-align: center;
 }
+.gridItemForProductList > div {
+    box-shadow: none;
+}

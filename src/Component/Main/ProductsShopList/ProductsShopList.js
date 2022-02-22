@@ -20,6 +20,7 @@ const ProductsShopList = ({}) => {
     const [buttonsOfAge] = useState(allAge);
 
     const filter = (button) => {
+
         if (button === "All") {
             return setMenuItems(productsArray)
         }

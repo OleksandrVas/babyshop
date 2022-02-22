@@ -9,3 +9,13 @@
     padding: 10px 10px ;
     margin-right: 5px ;
 }
+.number > button {
+    background-color: #fff;
+    font-size: 19px;
+    border: 1px solid white;
+}
+.number > button:hover {
+    color: gold;
+    cursor: pointer;
+    border-bottom:  1px solid gold;
+}
