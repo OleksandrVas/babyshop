@@ -8,13 +8,13 @@ import ButtonHome from "../ButtonArray/ButtonHome";
 
 
 
-const LikedProductCart = ({id  , removeFromLikedProducts}) => {
-
+const LikedProductCart = ({id  , likedProducts,  removeFromLikedProducts}) => {
+console.log(likedProducts[id])
     const productObj = productObject(productsArray)[id]
 
     return (
         <>
-             <Grid item  xs={16}>
+            {likedProducts[id]  &&  <Grid item  xs={16}>
                 <div className={classes.container}>
                     <div>
                         <img className={classes.image} src={productObj.src} />
@@ -26,7 +26,7 @@ const LikedProductCart = ({id  , removeFromLikedProducts}) => {
                         <h3>For child {productObj.age} years old </h3>
                         <div className={classes.navigationToShop}>
                             <Button>
-                                <FavoriteIcon onClick={()=>removeFromLikedProducts(id)} sx={{color: pink[500]} }/>
+                                <FavoriteIcon onClick={() => removeFromLikedProducts(id)} sx={{color: pink[500]} }/>
                             </Button>
                             <div className={classes.buttonHome}>
                                 <ButtonHome text={"GO TO SHOP"} to="/shop"/>
@@ -34,7 +34,7 @@ const LikedProductCart = ({id  , removeFromLikedProducts}) => {
                         </div>
                     </div>
                 </div>
-            </Grid>
+            </Grid>  }
         </>
     )
 }
