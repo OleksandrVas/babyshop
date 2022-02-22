@@ -9,7 +9,7 @@ const GridComponent = (props) => {
                   direction="row"
                   justifyContent="center"
                   alignItems="center"
-                  spacing={2}
+                  spacing={0}
                   columns={16}
                   rowSpacing={3}>
                 {props.children}

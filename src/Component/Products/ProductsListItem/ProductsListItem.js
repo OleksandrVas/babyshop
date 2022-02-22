@@ -19,32 +19,32 @@ const ProductsListItem = ({
                               categories
                           }) => {
 
-
     return (
         <>
             <Card>
                 <CardContent>
                     <div>
                         <div className={classes.productImage}>
-                            <img src={src}/>
+                            <NavLink to={"/shop"}><img src={src} /></NavLink>
+                            <div className={classes.positionOfLike}>
+                                <IconButton aria-label="add to favorites"
+                                            onClick={isLiked? () => onDislike(id) : () => onLikeProduct(id)}>
+                                    <FavoriteIcon sx={isLiked ? {color: pink[500]} : {color: grey[600]}}/>
+                                </IconButton>
+                                <IconButton aria-label="share">
+                                    <ShareIcon/>
+                                </IconButton>
+                            </div>
                         </div>
                         <div className={classes.nameOfProduct}>
                             <h3><NavLink to={`/product/${id}`}>{nameOfProduct}</NavLink></h3>
                             <h3>{categories}</h3>  {/*to link*/}
                         </div>
-                        <div className={classes.priceOfProduct}> price : <span>{price} $ </span></div>
+                        <div className={classes.priceOfProduct}> <span>{price} $ </span></div>
                         <div className={classes.addToCart}>
-                            <Button variant="outlined" onClick={() => onAddToCart(id, 1)}>Add to cart</Button>
+                            <Button variant={"text"} className={classes.addToCartBTN} onClick={() => onAddToCart(id, 1)}>Add to cart</Button>
                         </div>
-                        <div className={classes.positionOfLike}>
-                            <IconButton aria-label="add to favorites"
-                                        onClick={isLiked? () => onDislike(id) : () => onLikeProduct(id)}>
-                                <FavoriteIcon sx={isLiked ? {color: pink[500]} : {color: grey[600]}}/>
-                            </IconButton>
-                            <IconButton aria-label="share">
-                                <ShareIcon/>
-                            </IconButton>
-                        </div>
+
                     </div>
                 </CardContent>
             </Card>

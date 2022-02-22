@@ -7,8 +7,8 @@ const CategoryOfClothes = () => {
     return (
         <>
             <div className={classes.container}>
-                {categoryArray.map(({category, to , id   }) =>
-                    <Link to={to} key={id } className={classes.clothesLink}>{category}</Link> )}
+                {categoryArray.map(({category, id   }) =>
+                    <Link to="/shop" key={id } className={classes.clothesLink}>{category}</Link> )}
             </div>
         </>
     )

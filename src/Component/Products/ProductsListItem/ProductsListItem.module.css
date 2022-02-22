@@ -1,10 +1,21 @@
 .productImage {
     text-align: center;
+    position: relative;
 
+}
+.addToCartBTN {
+    color: black;
+}
+.addToCartBTN:hover {
+    color: gold;
 }
 .productImage img {
     height: 300px;
     width: auto;
+    border-radius: 10px;
+}
+.productImage img:hover {
+    opacity: 0.8;
 }
 .nameOfProduct {
     text-align: center;
@@ -36,5 +47,7 @@
     color: gold;
 }
 .positionOfLike {
-    text-align: right;
+    position: absolute;
+    bottom: 0;
+    right: 20px;
 }
