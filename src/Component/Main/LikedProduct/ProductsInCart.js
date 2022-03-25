@@ -6,16 +6,16 @@ import classes from "./LikedProudcts.module.css"
 import ProductInCard from "./ProductInCard";
 import ButtonToShop from "../../ButtonToShop/ButtonToShop";
 import SentimentVeryDissatisfiedIcon from '@mui/icons-material/SentimentVeryDissatisfied';
-import productsArray, {productObject} from "../../Products/ProductsArray";
+import {productObject} from "../../Products/ProductsArray";
 import {connect} from "react-redux";
 
-const ProductsInCart = ({changeProductQuantity, onRemoveFromCart, productInCart}) => {
+const ProductsInCart = ({changeProductQuantity, onRemoveFromCart, productInCart, products}) => {
     return (
         <>
             <div className={classes.box}>
                 <div className="container">
                     <div className={classes.wrapper}>
-                        {isEmpty(productInCart) && <div >
+                        {isEmpty(productInCart) && <div>
                             <GridComponent>
                                 <h1>Your Cart is Empty now</h1>
                                 <div className={classes.sadSmile}><SentimentVeryDissatisfiedIcon/></div>
@@ -26,7 +26,8 @@ const ProductsInCart = ({changeProductQuantity, onRemoveFromCart, productInCart}
                         <Container maxWidth="lg">
                             <GridComponent>
                                 {keys(productInCart).map(id =>
-                                    <ProductInCard changeProductQuantity={changeProductQuantity}
+                                    <ProductInCard products={products}
+                                                   changeProductQuantity={changeProductQuantity}
                                                    productInCart={productInCart}
                                                    onRemoveFromCart={onRemoveFromCart} id={id} key={id}/>
                                 )}
@@ -34,7 +35,7 @@ const ProductsInCart = ({changeProductQuantity, onRemoveFromCart, productInCart}
                             {!isEmpty(productInCart) && <div>
                                 Total Price : {keys(productInCart).reduce(
                                 (total, object) => (
-                                    total + (productObject(productsArray)[object].price * productInCart[object])
+                                    total + (productObject(products)[object].price * productInCart[object])
                                 )
                                 , 0)} $
                             </div>}
@@ -52,6 +53,7 @@ const ProductsInCart = ({changeProductQuantity, onRemoveFromCart, productInCart}
 
 const mapStateToProps = (state) => ({
     productInCart: state.cartProductList,
+    products: state.allProducts.products
 
 })
 

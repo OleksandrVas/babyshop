@@ -7,30 +7,35 @@ import {connect} from "react-redux";
 import classes from "./LikedProduct.module.css"
 
 
-const LikedProducts = ({likedProducts , removeFromLikedProducts}) => {
+const LikedProducts = ({likedProducts, removeFromLikedProducts , products}) => {
 
     return (
         <>
             <div className={classes.box}>
-            <Container maxWidth="lg">
-                <GridComponent>
-                    <h1>Your Liked Products</h1>
+                <Container maxWidth="lg">
+                    <GridComponent>
+                        <h1>Your Liked Products</h1>
 
-                </GridComponent>
-                <Grid container columns={16} spacing={3}>
-                    {
-                        keys(likedProducts).map(
-                        id => <LikedProductCart likedProducts={likedProducts} removeFromLikedProducts={removeFromLikedProducts} key={id} id={id}/>)
-                    }
-                </Grid>
-            </Container>
+                    </GridComponent>
+                    <Grid container columns={16} spacing={3}>
+                        {
+                            keys(likedProducts).map(
+                                id => <LikedProductCart products={products}
+                                                        likedProducts={likedProducts}
+                                                        removeFromLikedProducts={removeFromLikedProducts}
+                                                        key={id}
+                                                        id={id}/>)
+                        }
+                    </Grid>
+                </Container>
             </div>
         </>
     )
 }
 
 const mapStateToProps = (state) => ({
-    likedProducts: state.productsLikeState ,
+    likedProducts: state.productsLikeState,
+    products: state.allProducts.products
 
 })
 const mapDispatchToProps = (dispatch) => ({

@@ -3,13 +3,13 @@ import ProductsList from "../../../Products/ProductsList";
 import ProductSaleOfProducts from "../../../Products/ProductSaleOfProducts";
 import ProductsBestsellers from "../../../Products/ProductsBestsellers";
 
-const ProductsCatalog = ({ likeCount,addLikeCount }) => {
+const ProductsCatalog = ({ likeCount,addLikeCount, products }) => {
 
     return (
         <>
-            <ProductsList  likeCount={likeCount} addLikeCount={addLikeCount}/>
+            <ProductsList products={products}  likeCount={likeCount} addLikeCount={addLikeCount}/>
             <ProductSaleOfProducts price={"30"}/>
-            {/*<ProductsBestsellers />*/}
+            {/*<ProductsBestsellers products={products} />*/}
         </>
     )
 }

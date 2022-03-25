@@ -1,5 +1,5 @@
 import React from "react";
-import productsArray, {productObject} from "../Products/ProductsArray";
+import {productObject} from "../Products/ProductsArray";
 import {NavLink, useParams} from "react-router-dom";
 import HeadLine from "../HeadLine/HeadLine";
 import classes from "./DynamicPage.module.css"
@@ -12,15 +12,13 @@ import AddToCartBtn from "../AddToCart/AddToCartBtn";
 import SentimentVerySatisfiedIcon from '@mui/icons-material/SentimentVerySatisfied';
 import SentimentVeryDissatisfiedIcon from '@mui/icons-material/SentimentVeryDissatisfied';
 
-const allAge = [...new Set(productsArray.map(item => item.age))]
-const allGender = [...new Set(productsArray.map(item => item.gender))]
 
-
-const DynamicPage = ({addToLike, isLikedProduct, removeFromLike, onAddToProduct}) => {
+const DynamicPage = ({addToLike, isLikedProduct, removeFromLike, onAddToProduct, products}) => {
     let {id} = useParams()
-    const description = () => {
-        return {__html: productObject(productsArray)[id].description}
-    }
+    const productsArray = products
+    const allAge = [...new Set(productsArray.map(item => item.age))]
+    const allGender = [...new Set(productsArray.map(item => item.gender))]
+
 
     return (
         <>
@@ -28,7 +26,6 @@ const DynamicPage = ({addToLike, isLikedProduct, removeFromLike, onAddToProduct}
                 <div className="row">
                     <div className={classes.colXs6}>
                         <HeadLine headLine={productObject(productsArray)[id].nameOfProduct}/>
-                        <div dangerouslySetInnerHTML={description()} className={classes.dynamicDescription}/>
                         <div className={classes.price}>Price : <span>{productObject(productsArray)[id].price}</span> $
                         </div>
                         <div className={classes.selectCategory}>
@@ -67,7 +64,8 @@ const DynamicPage = ({addToLike, isLikedProduct, removeFromLike, onAddToProduct}
 
 
 const mapStateToProps = (state) => ({
-    isLikedProduct: state.productsLikeState
+    isLikedProduct: state.productsLikeState,
+    products: state.allProducts.products
 })
 
 const mapDispatchToProps = (dispatch) => ({

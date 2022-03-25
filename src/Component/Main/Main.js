@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect} from "react";
 import {Route, Routes} from "react-router-dom";
 import Home from "./Home/Home";
 import ProductsInCart from "./LikedProduct/ProductsInCart";
@@ -7,25 +7,25 @@ import LikedProducts from "../LikedProducts/LikedProducts";
 import DynamicPage from "../DynamicPages/DynamicPage";
 
 
-const Main = ({
-                  onAddToCart,
-              }) => {
+const Main = ({onAddToCart,}) => {
+
+
     return (
         <Routes>
             <Route path="/" element={
                 <Home/>
             }/>
             <Route path="/shop" element={
-                <ProductsShopList  />
+                <ProductsShopList/>
             }/>
             <Route path="/cart" element={
-                <ProductsInCart />
+                <ProductsInCart/>
             }/>
             <Route path="/likedProduct" element={
-                <LikedProducts  />
+                <LikedProducts/>
             }/>
             <Route path="/product/:id" element={
-                <DynamicPage onAddToCart={onAddToCart} />
+                <DynamicPage onAddToCart={onAddToCart}/>
             }/>
         </Routes>
     )

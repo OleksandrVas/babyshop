@@ -3,17 +3,15 @@ import HeadLine from "../../HeadLine/HeadLine";
 import BreadCrumbs from "../../BreadCrumbs/BreadCrumbs";
 import NavBarShop from "./NavBarShop";
 import ProductShopCatalog from "./ProductShopCatalog";
-import productsArray from "../../Products/ProductsArray";
 import {connect} from "react-redux";
 
 
-const allCategories = [ 'All', ...new Set(productsArray.map(item => item.categories))]
+const ProductsShopList = ({products}) => {
 
-const allAge = [...new Set(productsArray.map(item => item.age))]
+    const productsArray = products
+    const allCategories = ['All', ...new Set(productsArray.map(item => item.categories))]
 
-
-
-const ProductsShopList = ({}) => {
+    const allAge = [...new Set(productsArray.map(item => item.age))]
 
     const [menuItems, setMenuItems] = useState(productsArray)
     const [buttons] = useState(allCategories);
@@ -42,10 +40,15 @@ const ProductsShopList = ({}) => {
             <BreadCrumbs/>
             <div className={"colXs12"}>
                 <NavBarShop buttonsOfAge={buttonsOfAge} filter={filter} button={buttons} filteredByAge={filteredByAge}/>
-                <ProductShopCatalog  menuItems={menuItems}/>
+                <ProductShopCatalog menuItems={menuItems}/>
             </div>
         </>
     )
 }
 
-export default ProductsShopList
+const mapStateToProps = (state) => ({
+    products: state.allProducts.products
+})
+
+
+export default connect(mapStateToProps)(ProductsShopList)
