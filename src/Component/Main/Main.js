@@ -7,8 +7,7 @@ import LikedProducts from "../LikedProducts/LikedProducts";
 import DynamicPage from "../DynamicPages/DynamicPage";
 
 
-const Main = ({onAddToCart,}) => {
-
+const Main = ({isLogin}) => {
 
     return (
         <Routes>
@@ -18,16 +17,23 @@ const Main = ({onAddToCart,}) => {
             <Route path="/shop" element={
                 <ProductsShopList/>
             }/>
-            <Route path="/cart" element={
-                <ProductsInCart/>
-            }/>
-            <Route path="/likedProduct" element={
-                <LikedProducts/>
-            }/>
+            {isLogin &&
+            <>
+                <Route path="/cart" element={
+                    <ProductsInCart/>
+                }/>
+                <Route path="/likedProduct" element={
+                    <LikedProducts/>
+                }/>
+            </>
+            }
+
             <Route path="/product/:id" element={
-                <DynamicPage onAddToCart={onAddToCart}/>
+                <DynamicPage/>
             }/>
         </Routes>
     )
 }
+
+
 export default Main

@@ -39,3 +39,6 @@
     top: 0;
     right: 25px;
 }
+.formContainer {
+    display: flex;
+}
