@@ -3,6 +3,7 @@ import productListReducer from "./productListReducer";
 import productLikeStateReducer from "./productLikeStateReducer";
 import allProductsReducers from "./allProductsReducers";
 import authorizeReducer from "./authorizeReducer";
+import {blogReducer} from "./blogReducer";
 
 
 const rootReducer = combineReducers({
@@ -10,6 +11,7 @@ const rootReducer = combineReducers({
         productsLikeState: productLikeStateReducer,
         allProducts: allProductsReducers,
         authReduce: authorizeReducer,
+        blog : blogReducer
 
     }
 )

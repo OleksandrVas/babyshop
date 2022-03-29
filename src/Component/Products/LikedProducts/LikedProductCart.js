@@ -1,10 +1,10 @@
 import React from "react";
-import {productObject} from "../Products/ProductsArray";
+import {productObject} from "../ProductsArray";
 import {Button, Grid} from "@mui/material";
 import classes from "./LikedProduct.module.css"
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import {pink} from "@mui/material/colors";
-import ButtonHome from "../ButtonArray/ButtonHome";
+import ButtonHome from "../../ButtonArray/ButtonHome";
 
 
 const LikedProductCart = ({id, likedProducts, removeFromLikedProducts, products}) => {

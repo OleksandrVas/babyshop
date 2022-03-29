@@ -1,39 +1,31 @@
-import React, {useEffect} from "react";
+import React from "react";
 import {Route, Routes} from "react-router-dom";
-import Home from "./Home/Home";
-import ProductsInCart from "./LikedProduct/ProductsInCart";
-import ProductsShopList from "./ProductsShopList/ProductsShopList";
-import LikedProducts from "../LikedProducts/LikedProducts";
-import DynamicPage from "../DynamicPages/DynamicPage";
+import HomeContainer from "./Home/HomeContainer";
+import ProductsShopListContainer from "./ProductsShopList/ProductsShopListContainer";
+import ProductsInCartContainer from "../Products/ProductsInCartContainer";
+import LikedProductsContainer from "../Products/LikedProducts/LikedProductsContainer";
+import DynamicPageContainer from "../DynamicPages/DynamicPageContainer";
+import CommentsContainer from "./Comments/CommentsContainer";
 
 
-const Main = ({isLogin}) => {
+const MainContainer = ({isLogin}) => {
 
     return (
         <Routes>
-            <Route path="/" element={
-                <Home/>
-            }/>
-            <Route path="/shop" element={
-                <ProductsShopList/>
-            }/>
+            <Route path="/" element={<HomeContainer/>}/>
+            <Route path="/shop" element={<ProductsShopListContainer/>}/>
+
             {isLogin &&
             <>
-                <Route path="/cart" element={
-                    <ProductsInCart/>
-                }/>
-                <Route path="/likedProduct" element={
-                    <LikedProducts/>
-                }/>
+                <Route path="/cart" element={<ProductsInCartContainer/>}/>
+                <Route path="/likedProduct" element={<LikedProductsContainer/>}/>
             </>
             }
-
-            <Route path="/product/:id" element={
-                <DynamicPage/>
-            }/>
+            <Route path="/product/:id" element={<DynamicPageContainer/>}/>
+            <Route path="/comments" element={<CommentsContainer/>}/>
         </Routes>
     )
 }
 
 
-export default Main
+export default MainContainer

@@ -66,3 +66,9 @@ font-size: 25px ;
 .doYouLike {
     margin: 15px 0 ;
 }
+ul > li {
+    font-size: 19px;
+}
+.descriptionContainer {
+    margin-left: 50px;
+}

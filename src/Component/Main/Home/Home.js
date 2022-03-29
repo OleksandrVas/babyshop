@@ -7,7 +7,7 @@ import ProductsCatalog from "./HomePagesComponents/ProductsCatalog";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import {pink} from "@mui/material/colors";
 import {NavLink} from "react-router-dom";
-import {connect} from "react-redux";
+
 import sumReduce from "../../sumReduce /sumRedcue";
 
 const Home = ({likeCount = 0, products}) => {
@@ -27,15 +27,9 @@ const Home = ({likeCount = 0, products}) => {
                 <CategoryOfClothes/>
                 <ProductsCatalog likeCount={likeCount} products={products} />
             </div>
-
         </>
     )
 }
 
-const mapStateToProps = (state) => ({
-    likeCount: state.productsLikeState,
-    products: state.allProducts.products
-})
 
-
-export default connect(mapStateToProps)(Home)
+export default Home

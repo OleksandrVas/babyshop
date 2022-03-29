@@ -1,49 +1,25 @@
-import React, {useEffect, useState} from "react";
-import Header from "./Component/Header/Header";
+import React from "react";
 import Footer from "./Component/Footer/Footer";
-import Main from "./Component/Main/Main";
-import {connect, useDispatch} from "react-redux";
-import {fetchProducts} from "./asyncAction/getAllProducts";
 import Preloader from "./Component/Preloader/Preloader";
-import {onLogIn, onLogOut} from "./Redux/authorizeReducer";
+import HeaderContainer from "./Component/Header/HeaderContainer";
+import MainContainer from "./Component/Main/Main";
 
-const App = ({isLoading,  onLogIn, onLogOut , }) => {
-    const [isLogin, setIsLogin] = useState(false)
-
-    const dispatch = useDispatch()
-    const checkIsLogin = localStorage.getItem("auth")
-
-
-    useEffect(() => {
-        dispatch(fetchProducts())
-    }, [])
-
-    useEffect(() => {
-        if (checkIsLogin) {
-            return setIsLogin(true)
-        }
-       return  setIsLogin(false)
-
-    }, [checkIsLogin])
-
+const App = ({isLoading, onLogIn, onLogOut, isLogin}) => {
 
     if (isLoading) {
         return <Preloader/>
     }
     return (
         <>
-            <Header isLogin={isLogin} onLogIn={onLogIn} onLogOut={onLogOut} />
-            <Main isLogin={isLogin}/>
+            <HeaderContainer isLogin={isLogin} onLogIn={onLogIn} onLogOut={onLogOut}/>
+            <MainContainer isLogin={isLogin}/>
             <Footer/>
         </>
     )
 
 }
 
-const mapStateToProps = (state) => ({
-    isLoading: state.allProducts.isLoading,
-    userAuth: state.authReduce
-})
 
 
-export default connect(mapStateToProps, {onLogIn, onLogOut})(App);
+
+export default App

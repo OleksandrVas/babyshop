@@ -1,0 +1,19 @@
+.containerForComments  {
+    display: flex;
+    justify-content: center;
+
+
+}
+.headLine {
+    text-align: center;
+
+}
+.name {
+    font-weight: bolder;
+    color: teal;
+    margin-right: 25px;
+}
+.phone {
+    color: #986565;
+    margin-left: 25px;
+}

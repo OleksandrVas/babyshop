@@ -1,12 +1,12 @@
 
 const GET_ALL_PRODUCTS = "GET_ALL_PRODUCTS"
 
-const defaultState = {
+const initialState = {
     products: [],
     isLoading: true ,
 }
 
-const allProductsReducers = (state = defaultState, acton) => {
+const allProductsReducers = (state = initialState, acton) => {
     switch (acton.type) {
         case GET_ALL_PRODUCTS : {
             return  {

@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React from "react";
 import GridComponent from "../../Grid/GridComponent";
 import {Container} from "@mui/material";
 import {isEmpty, keys} from "lodash";
@@ -7,9 +7,9 @@ import ProductInCard from "./ProductInCard";
 import ButtonToShop from "../../ButtonToShop/ButtonToShop";
 import SentimentVeryDissatisfiedIcon from '@mui/icons-material/SentimentVeryDissatisfied';
 import {productObject} from "../../Products/ProductsArray";
-import {connect} from "react-redux";
 
 const ProductsInCart = ({changeProductQuantity, onRemoveFromCart, productInCart, products}) => {
+
     return (
         <>
             <div className={classes.box}>
@@ -44,22 +44,11 @@ const ProductsInCart = ({changeProductQuantity, onRemoveFromCart, productInCart,
 
                 </div>
             </div>
-
-
         </>
     )
 }
 
 
-const mapStateToProps = (state) => ({
-    productInCart: state.cartProductList,
-    products: state.allProducts.products
 
-})
 
-const mapDispatchToProps = (dispatch) => ({
-    onRemoveFromCart: (id) => dispatch({type: "REMOVE_FROM_CART", id}),
-    changeProductQuantity: (id, count) => dispatch({type: "CHANGE_PRODUCT_QUANTITY", id, count})
-})
-
-export default connect(mapStateToProps, mapDispatchToProps)(ProductsInCart)
+export default ProductsInCart

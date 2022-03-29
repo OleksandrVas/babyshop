@@ -17,7 +17,7 @@ const HeaderMenu = ({likeCount = 0, clearCart, productsInCart, isLogin}) => {
                 <NavLinkCreator to="/" text='HOME'/>
                 <NavLinkCreator to="/shop" text='OUR PRODUCTS '/>
                 <NavLinkCreator to="/about" text='ABOUT US '/>
-                <NavLinkCreator to="/blog" text='BLOG'/>
+                <NavLinkCreator to="/comments" text='BLOG'/>
                 <NavLinkCreator to="/client" text='CLIENT CENTER '/>
                 <NavLinkCreator to="/faq" text='FAQ '/>
                 <NavLinkCreator to="/cart" text={"CART"}/>

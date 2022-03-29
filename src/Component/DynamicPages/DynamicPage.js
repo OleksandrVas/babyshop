@@ -1,10 +1,9 @@
 import React from "react";
 import {productObject} from "../Products/ProductsArray";
-import {NavLink, useParams} from "react-router-dom";
+import {NavLink} from "react-router-dom";
 import HeadLine from "../HeadLine/HeadLine";
 import classes from "./DynamicPage.module.css"
 import SelectForAge from "./SelectComponent/SelectForAge";
-import {connect} from "react-redux";
 import {Button} from "@mui/material";
 import ThumbUpIcon from '@mui/icons-material/ThumbUp';
 import ThumbDownAltIcon from '@mui/icons-material/ThumbDownAlt';
@@ -13,26 +12,50 @@ import SentimentVerySatisfiedIcon from '@mui/icons-material/SentimentVerySatisfi
 import SentimentVeryDissatisfiedIcon from '@mui/icons-material/SentimentVeryDissatisfied';
 
 
-const DynamicPage = ({addToLike, isLikedProduct, removeFromLike, onAddToProduct, products}) => {
-    let {id} = useParams()
-    const productsArray = products
-    const allAge = [...new Set(productsArray.map(item => item.age))]
-    const allGender = [...new Set(productsArray.map(item => item.gender))]
+const DynamicPage = ({
+                         addToLike,
+                         isLikedProduct,
+                         id,
+                         removeFromLike,
+                         onAddToProduct,
+                         productsArray,
+                         allAge,
+                         allGender
+                     }) => {
 
 
+    console.log(productsArray)
     return (
         <>
             <div className="container">
                 <div className="row">
                     <div className={classes.colXs6}>
+
                         <HeadLine headLine={productObject(productsArray)[id].nameOfProduct}/>
-                        <div className={classes.price}>Price : <span>{productObject(productsArray)[id].price}</span> $
+                        <div className={classes.descriptionContainer}>
+                            <h2>Lorem ipsum dolor sit amet enim. Etiam ullamcorper. Suspendisse a non felis eleifend
+                                justo vel bibendum sapien.</h2>
+                            <ul>
+                                <li>Maecenas malesuada 5 elit lectus felis, malesuada ultricies.</li>
+                                <li>Curabitur et ligula. Ut molestie a, ultricies porta urna.</li>
+                                <li>Vestibulum commodo volutpat a, convallis ac, laoreet enim.</li>
+                                <li>Phasellus fermentum in, dolor. Pellentesque facilisis.</li>
+                            </ul>
+                            <h3>Composition: Main material: 95% Cotton, 5% Polyester</h3>
+                        </div>
+                        <div className={classes.price}>
+                            Price : <span>{productObject(productsArray)[id].price}</span>
                         </div>
                         <div className={classes.selectCategory}>
-                            <div className={classes.selectorForAge}><SelectForAge array={allAge} type={'Age'}/></div>
-                            <div className={classes.selectorForGender}><SelectForAge array={allGender} type={'Gender'}/>
+                            <div className={classes.selectorForAge}>
+                                <SelectForAge array={allAge} type={'Age'}/>
                             </div>
+                            <div className={classes.selectorForGender}>
+                                <SelectForAge array={allGender} type={'Gender'}/>
+                            </div>
+
                         </div>
+
                     </div>
                     <div className={classes.colXs6}>
                         <div className={classes.imageToCenter}>
@@ -63,15 +86,4 @@ const DynamicPage = ({addToLike, isLikedProduct, removeFromLike, onAddToProduct,
 }
 
 
-const mapStateToProps = (state) => ({
-    isLikedProduct: state.productsLikeState,
-    products: state.allProducts.products
-})
-
-const mapDispatchToProps = (dispatch) => ({
-    addToLike: (id) => dispatch({type: "ADD_LIKE", id}),
-    removeFromLike: (id) => dispatch({type: "REMOVE_FROM_LIKE", id}),
-    onAddToProduct: (id, count) => dispatch({type: "ADD_TO_CART", id, count})
-})
-
-export default connect(mapStateToProps, mapDispatchToProps)(DynamicPage)
+export default DynamicPage

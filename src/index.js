@@ -1,15 +1,15 @@
-import React, {useState} from 'react';
+import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './App';
 import {BrowserRouter} from "react-router-dom";
 import {Provider} from "react-redux";
 import {store} from "./store";
+import AppContainer from "./AppContainer";
 
 
 ReactDOM.render(
     <BrowserRouter>
         <Provider store={store}>
-            <App store={store}/>
+            <AppContainer store={store}/>
         </Provider>
     </BrowserRouter>
     ,
