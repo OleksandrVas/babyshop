@@ -1,5 +1,4 @@
 
-
 const SET_POSTS = "SET_POSTS"
 const SET_USERS = "SET_USERS"
 const ADD_ORDER = "ADD_ORDER"

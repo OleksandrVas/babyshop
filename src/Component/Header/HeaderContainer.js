@@ -3,8 +3,8 @@ import classes from './Header.module.css'
 import '../../App.css'
 import Logo from "../Logo/Logo";
 import HeaderMenu from "./HeaderMenu";
-import AuthForm from "../AuthForm/AuthForm";
 import AuthSuccess from "../AuthForm/AuthSuccess";
+import AuthFormContainer from "../AuthForm/AuthFormContainer";
 
 const HeaderContainer = ({isLogin , onLogOut , onLogIn}) => {
     return (
@@ -15,7 +15,7 @@ const HeaderContainer = ({isLogin , onLogOut , onLogIn}) => {
                     <div className="col-xs-6">
                         {isLogin?
                             <AuthSuccess  onLogOut={onLogOut}/> :
-                            <AuthForm onLogIn={onLogIn}/>
+                            <AuthFormContainer onLogIn={onLogIn}/>
 
                         }
                     </div>
