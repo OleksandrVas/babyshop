@@ -1,8 +1,10 @@
 import React from 'react';
 
-const AuthSuccess = ({ onLogOut}) => {
+const AuthSuccess = ({onLogOut, onLogOutAdmin}) => {
+
     const onLogOutForm = () => {
         onLogOut()
+        onLogOutAdmin()
         localStorage.removeItem("auth")
     }
 

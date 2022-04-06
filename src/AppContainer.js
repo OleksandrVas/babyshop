@@ -1,15 +1,15 @@
 import React, {useEffect, useState} from "react";
 import {connect, useDispatch} from "react-redux";
 import Preloader from "./Component/Preloader/Preloader";
-import {onLogIn, onLogOut} from "./Redux/authorizeReducer";
 import {fetchActionCreator} from "./asyncAction/fetchActionCreator";
 import {commentsAPI, productsAPI, usersAPI} from "./API/API";
 import {getAllProductsAction} from "./Redux/allProductsReducers";
 import {setPosts, setUsers} from "./Redux/blogReducer";
 import App from "./App";
+import {onLogInAdmin, onLogOutAdmin} from "./Redux/authorizeReducer";
 
 
-const AppContainer = ({isLoading, onLogIn, onLogOut }) => {
+const AppContainer = ({isLoading, onLogInAdmin, isAdmin, onLogOutAdmin}) => {
     const [isLogin, setIsLogin] = useState(false)
     const checkIsLogin = localStorage.getItem("auth")
     const dispatch = useDispatch()
@@ -18,16 +18,29 @@ const AppContainer = ({isLoading, onLogIn, onLogOut }) => {
         dispatch(fetchActionCreator(productsAPI, getAllProductsAction))
         dispatch(fetchActionCreator(commentsAPI, setPosts))
         dispatch(fetchActionCreator(usersAPI, setUsers))
-    } , [])
+    }, [])
 
 
     useEffect(() => {
         if (checkIsLogin) {
             return setIsLogin(true)
+
         }
         return setIsLogin(false)
 
     }, [checkIsLogin])
+
+
+    useEffect(() => {
+        const isAdminLogin = () => {
+            if (isAdmin === true) {
+               return  localStorage.removeItem("auth")
+            }
+        }
+        return () => isAdminLogin()
+    } )
+
+
 
 
     if (isLoading) {
@@ -35,18 +48,17 @@ const AppContainer = ({isLoading, onLogIn, onLogOut }) => {
     }
     return (
         <App isLogin={isLogin}
-             onLogOut={onLogOut}
              isLoading={isLoading}
-             onLogIn={onLogIn}/>
+        />
     )
 
 }
 
 const mapStateToProps = (state) => ({
     isLoading: state.allProducts.isLoading,
-    userAuth: state.authReduce
-
+    userAuth: state.authReduce,
+    isAdmin: state.authReduce.isAdmin
 })
 
 
-export default connect(mapStateToProps, {onLogIn, onLogOut })(AppContainer);
+export default connect(mapStateToProps, {onLogInAdmin, onLogOutAdmin})(AppContainer);

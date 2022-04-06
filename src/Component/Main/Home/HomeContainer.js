@@ -1,8 +1,8 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {connect} from "react-redux";
 import Home from "./Home";
 
-const HomeContainer = ({likeCount, products  }) => {
+const HomeContainer = ({likeCount, products}) => {
 
 
     return (

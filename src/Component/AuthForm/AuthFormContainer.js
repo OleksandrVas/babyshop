@@ -1,16 +1,23 @@
 import React, {useState} from 'react';
 import AuthForm from "./AuthForm";
 
-const AuthFormContainer = ({onLogIn}) => {
+
+const AuthFormContainer = ({onLogIn, onLogInAdmin, admin}) => {
+    console.log(admin)
     const [authForm, setAuthForm] = useState({
-        email: "",
+        name: "",
         password: ""
     })
 
-    console.log(authForm)
+    const isAdminCheck = () => {
+        if (authForm.name === admin.name) {
+            if (authForm.password === admin.password) {return onLogInAdmin()}
+        }
+    }
 
     const handlerSubmitTrue = (e) => {
         e.preventDefault()
+        isAdminCheck()
         onLogIn()
         localStorage.setItem("auth", "true")
     }
@@ -22,7 +29,7 @@ const AuthFormContainer = ({onLogIn}) => {
     const handlerChangeEmail = (e) => {
         setAuthForm(() => ({
             ...authForm,
-            email: e.target.value
+            name: e.target.value
         }))
     }
     const handlerChangePassword = (e) => {
@@ -41,6 +48,8 @@ const AuthFormContainer = ({onLogIn}) => {
                   authForm={authForm}
         />
     );
+
+
 };
 
 export default AuthFormContainer;

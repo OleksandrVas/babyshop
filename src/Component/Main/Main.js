@@ -9,20 +9,20 @@ import CommentsContainer from "./Comments/CommentsContainer";
 
 
 const MainContainer = ({isLogin}) => {
-
     return (
         <Routes>
-            <Route path="/" element={<HomeContainer/>}/>
+            <Route path="*" element={<HomeContainer/>}/>
             <Route path="/shop" element={<ProductsShopListContainer/>}/>
 
             {isLogin &&
             <>
                 <Route path="/cart" element={<ProductsInCartContainer/>}/>
                 <Route path="/likedProduct" element={<LikedProductsContainer/>}/>
+                <Route path="/comments" element={<CommentsContainer/>}/>
             </>
             }
             <Route path="/product/:id" element={<DynamicPageContainer/>}/>
-            <Route path="/comments" element={<CommentsContainer/>}/>
+
         </Routes>
     )
 }

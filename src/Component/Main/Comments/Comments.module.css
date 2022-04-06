@@ -1,7 +1,6 @@
 .containerForComments  {
-    display: flex;
-    justify-content: center;
-
+    /*display: flex;*/
+    /*justify-content: center;*/
 
 }
 .headLine {
@@ -16,4 +15,17 @@
 .phone {
     color: #986565;
     margin-left: 25px;
+}
+.bodyOComments {
+    max-width: 500px;
+}
+.userComments {
+    color:#859581;
+    font-size: 18px;
+}
+.comment {
+    display: flex;
+}
+.buttonOfComment{
+    height: 30px;
 }
