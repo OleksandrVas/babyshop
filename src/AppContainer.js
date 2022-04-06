@@ -1,8 +1,7 @@
 import React, {useEffect, useState} from "react";
-import {connect} from "react-redux";
+import {connect, useDispatch} from "react-redux";
 import Preloader from "./Component/Preloader/Preloader";
 import {onLogIn, onLogOut} from "./Redux/authorizeReducer";
-import {useActionDispatch} from "./hooks/useActionDispatch";
 import {fetchActionCreator} from "./asyncAction/fetchActionCreator";
 import {commentsAPI, productsAPI, usersAPI} from "./API/API";
 import {getAllProductsAction} from "./Redux/allProductsReducers";
@@ -10,13 +9,17 @@ import {setPosts, setUsers} from "./Redux/blogReducer";
 import App from "./App";
 
 
-const AppContainer = ({isLoading, onLogIn, onLogOut}) => {
+const AppContainer = ({isLoading, onLogIn, onLogOut }) => {
     const [isLogin, setIsLogin] = useState(false)
     const checkIsLogin = localStorage.getItem("auth")
+    const dispatch = useDispatch()
 
-    useActionDispatch(fetchActionCreator(productsAPI, getAllProductsAction))
-    useActionDispatch(fetchActionCreator(commentsAPI, setPosts))
-    useActionDispatch(fetchActionCreator(usersAPI, setUsers))
+    useEffect(() => {
+        dispatch(fetchActionCreator(productsAPI, getAllProductsAction))
+        dispatch(fetchActionCreator(commentsAPI, setPosts))
+        dispatch(fetchActionCreator(usersAPI, setUsers))
+    } , [])
+
 
     useEffect(() => {
         if (checkIsLogin) {
@@ -46,4 +49,4 @@ const mapStateToProps = (state) => ({
 })
 
 
-export default connect(mapStateToProps, {onLogIn, onLogOut})(AppContainer);
+export default connect(mapStateToProps, {onLogIn, onLogOut })(AppContainer);
