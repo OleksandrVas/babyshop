@@ -2,7 +2,7 @@ import React from 'react';
 import cl from "./Comments.module.css"
 import DynamicForm from "../../DymanicForm/DynamicForm";
 import DeleteIcon from '@mui/icons-material/Delete';
-import {Button} from "@mui/material";
+import {Button, InputLabel} from "@mui/material";
 
 const Comments = ({
                       isAdmin,
@@ -23,6 +23,7 @@ const Comments = ({
                     <h1 className={cl.headLine}>Thanks for comments </h1> :
                     <h1 className={cl.headLine}>The comments list is currently empty. </h1>
                 }
+
                 <div className={cl.containerForComments}>
                     <div>
                         {posts.map((post) =>
@@ -39,17 +40,20 @@ const Comments = ({
                 </div>
 
 
-                <DynamicForm
-                    placeholderFirst={"Enter correct name"}
-                    placeholderSecond={"Enter correct number"}
-                    valueFirst={order.name}
-                    valueSecond={order.body}
-                    handlerSubmit={handleSubmitForm}
-                    handlerChangeFirst={handlerChangeName}
-                    handlerChangeSecond={handlerChangeNumber}
-                    buttonName="Add comments"
-                    typeOfPlaceholder={"text"}
-                />
+                <div className={cl.dynamicFormContainer}>
+                    <DynamicForm
+                        placeholderFirst={"Enter your name"}
+                        placeholderSecond={"Enter message"}
+                        valueFirst={order.name}
+                        valueSecond={order.body}
+                        handlerSubmit={handleSubmitForm}
+                        handlerChangeFirst={handlerChangeName}
+                        handlerChangeSecond={handlerChangeNumber}
+                        buttonName="Add comments"
+                        typeOfPlaceholder={"text"}
+                    />
+                </div>
+
             </div>
         </div>
     )

@@ -1,31 +1,63 @@
-.containerForComments  {
+.containerForComments {
     /*display: flex;*/
     /*justify-content: center;*/
 
 }
+
 .headLine {
     text-align: center;
 
 }
+
 .name {
     font-weight: bolder;
     color: teal;
     margin-right: 25px;
 }
+
 .phone {
     color: #986565;
     margin-left: 25px;
 }
+
 .bodyOComments {
     max-width: 500px;
 }
+
 .userComments {
-    color:#859581;
+    color: #859581;
     font-size: 18px;
 }
+
 .comment {
     display: flex;
 }
-.buttonOfComment{
+
+.buttonOfComment {
     height: 30px;
+}
+
+.dynamicFormContainer {
+    text-align: center;
+    margin-top: 50px;
+}
+
+.dynamicFormContainer > form > input {
+    margin: 5px;
+    border-radius: 5px;
+    border-color: teal;
+    padding: 7px;
+}
+.dynamicFormContainer > form > input:target {
+    border-color: black;
+}
+
+.dynamicFormContainer > form > button {
+    border-color: #e7a8a8;
+    color: #8f6a6a;
+    cursor: pointer;
+}
+
+.dynamicFormContainer > form > button:hover {
+    background-color: #f4ebeb;
 }

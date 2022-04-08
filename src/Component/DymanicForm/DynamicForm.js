@@ -17,6 +17,7 @@ const DynamicForm = ({
             <input placeholder={placeholderFirst} value={valueFirst} onChange={handlerChangeFirst}/>
             <input placeholder={placeholderSecond} value={valueSecond} onChange={handlerChangeSecond}
                    type={typeOfPlaceholder}/>
+            <br/>
             <MyButton>{buttonName}</MyButton>
         </form>
     );
